@@ -32,7 +32,7 @@ gem 'spring',        group: :development
 gem 'carrierwave'
 gem 'mini_magick'
 
-gem 'geokit-rails'
+# gem 'geokit-rails'
 gem 'openssl'
 gem 'geokit'
 

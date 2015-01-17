@@ -4,32 +4,29 @@
     .col-md-8
       .row
         .product-order
-          .col-md-2
-            .row
-              .col-md-12
-                -#.select-wrapper
-                %select.country_id{:name => "country_id"}
-                  %option{:value => ""} Sort by date
-                  %option{:value => "4"} Sort by price
-                  %option{:value => "10"} Sort by distance
-          .col-md-2
-            .row
-              .col-md-12
-                -#.select-wrapper
-                %select.country_id{:name => ""}
-                  %option{:value => "aa"} Filter by type
+          .col-md-4
+          .col-md-4
+            .select-wrapper
+              %form{:action => "search"}
+                %select.country-id{:name => "price"}
+                  %option{:value => "50"} 0-50
+                  %option{:value => "100"} 50-100
+                  %option{:value => "150"} 100-150
+                  %option{:value => "200"} 150-
+                %select.country_id{:name => "miles"}
+                  %option{:value => 5} 0-5
+                  %option{:value => 10} 5-10
+                  %option{:value => 30} 10-30
+                  %option{:value => 50} 30-
+                %select.country_id{:name => "tag"}
                   %option{:value => "chair"} Chair
                   %option{:value => "table"} Table
                   %option{:value => "bed"} Bed
                   %option{:value => "sofa"} Sofa
                   %option{:value => "other"} Others
-          .col-md-4
-          .col-md-4
-            .select-wrapper
-              %form
                 %input.input-black{:type => "text", :name => "address"}
                 %input.btn-sm{:type => "submit", :value => "Search"}
-      #map-canvas
+      #map-canvas}
     .col-md-4.scroll-view
       %section.content-wrapper
         .widget-box.sidebar
