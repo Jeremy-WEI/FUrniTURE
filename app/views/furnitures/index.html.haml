@@ -1,21 +1,5 @@
 %h1 Searching
 
-= form_for @search do |f|
-  .field
-    = f.label :address
-    = f.text_field :current_address
-  .field
-    = f.label :type
-    = select(:type, :status, options_for_select([["canceled", "1"], ["pending", "2"], ["success", "3"]]))
-    = f.text_field :type
-  .field
-    = f.label :price
-    = f.text_field :price
-  .field
-    = f.label :distance
-    = f.text_field :distance
-  .actions
-    = f.submit 'Search'
 
 
 %h1 Listing furnitures
