@@ -25,6 +25,7 @@ class FurnituresController < ApplicationController
   # POST /furnitures.json
   def create
     @furniture = Furniture.new(furniture_params)
+    @furniture.user = current_user
 
     respond_to do |format|
       if @furniture.save
