@@ -1,247 +1,215 @@
-.outter
-  %section.top-block
-    .container
-      .row
-        .col-md-12
-          .sel-top
-  %section.header
-    .container
-      .row
-        .col-sm-6
-          .sitelogo-block
-            .logo
-              %a{:href => "javascript:;"}
-                = image_tag 'logo.png'
-            .titledesc
-              %h1 FU<small>rni</small>TURE
-              %span Best Used Furniture Trading Platform
-        .col-sm-6
-          .topinfo-block
-            %form{:method => "POST"}
-              %input.input-search{:name => "search", :placeholder => "search", :type => "text", :value => ""}
-                %button.submit-search{:name => "submit", :type => "submit"}
-                  %i.icon-search
-            %a.info.login{:href => "login.html"}
-              %span.icon>
-                %i.icon-lock
-              Login
-            %a.info.cart{:href => "cart.html"}
-              %span.icon>
-                %i.icon-basket
-              Cart
-              %span 0
-  %section.navigation
-    .container
-      .row
-        .col-md-12
-          %nav.navbar.navbar-default{:role => "navigation"}
-            .container-fluid
-              .navbar-header
-                %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
-                  %span.sr-only Toggle navigation
-                  %span.icon-bar
-                  %span.icon-bar
-                  %span.icon-bar
-              #bs-example-navbar-collapse-1.collapse.navbar-collapse
-                %ul.nav.navbar-nav
-                  %li.dropdown
-                    %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-                      HOME
-                      %b.caret
-                    %ul.dropdown-menu
-                      %li
-                        %a{:href => "index.html"} Home Default
-                      %li
-                        %a{:href => "index-business.html"} Home Business Version
-                      %li
-                        %a{:href => "index-business-full-width-slider.html"} Home Business Alternative
-                  %li
-                    %a{:href => "about.html"} ABOUT
-                  %li.dropdown
-                    %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-                      PAGES
-                      %b.caret
-                    %ul.dropdown-menu
-                      %li
-                        %a{:href => "404.html"} 404 Error page
-                      %li
-                        %a{:href => "about.html"} About
-                      %li
-                        %a{:href => "cart.html"} Cart
-                      %li
-                        %a{:href => "checkout.html"} Checkout
-                      %li
-                        %a{:href => "coming-soon.html"} Coming Soon
-                      %li
-                        %a{:href => "contact.html"} Contact
-                      %li
-                        %a{:href => "login.html"} Login
-                      %li
-                        %a{:href => "pricing-tables.html"} Pricing Tables
-                      %li
-                        %a{:href => "shop.html"} Shop
-                      %li
-                        %a{:href => "services.html"} Services
-                      %li
-                        %a{:href => "shortcodes.html"} Shortcode
-                  %li.dropdown
-                    %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-                      SHOP
-                      %b.caret
-                    %ul.dropdown-menu
-                      %li
-                        %a{:href => "shop.html"} Product List
-                      %li
-                        %a{:href => "product-detail.html"} Product Detail
-                  %li.dropdown
-                    %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-                      Blog
-                      %b.caret
-                    %ul.dropdown-menu
-                      %li
-                        %a{:href => "blog.html"} Blog Page
-                      %li
-                        %a{:href => "blog-post.html"} Blog Post Sidebar
-                      %li
-                        %a{:href => "full-width.html"} Blog Post Full Width
-                  %li
-                    %a{:href => "shortcodes.html"} SHORTCODE
-                  %li
-                    %a{:href => "contact.html"} CONTACT
-  .topslider{:name => "slider"}
-    #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
-      %ol.carousel-indicators
-        %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
-        %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
-      .carousel-inner
-        .item.active.animated.fadeInUp
-          = image_tag 'top-slider/slide_1.jpg'
-          .caption
-            .slider-title.animated.fadeInDown.delay1 NO IDEA WITH YOUR USED FURNITURE?
-            .hidden-xs.delay2.slider-desc.animated.fadeIn FUrniTURE is the best place for you to sell your furniture.
-            .slider-button.animated.fadeInUp.delay3
-              %a{:href => "javascript:;"} NEW POST
-              %a{:href => "javascript:;"} SEARCH NEARBY FURNITURE
-        .item.animated.fadeInUp
-          = image_tag 'top-slider/slide_2.jpg'
-          .caption
-            .slider-title.animated.fadeInDown.delay1 PENNTASTIC FOUR
-            .hidden-xs.delay2.slider-desc.animated.fadeIn We are a team of 4 MCIT students at UPenn. <br>Energetic, curious and open-minded, we are ready to ROCK!
-            .slider-button.animated.fadeInUp.delay3
-              %a{:href => "javascript:;"} ABOUT US
-      %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example-generic"}
-        = image_tag 'slide-left.png'
-      %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-example-generic"}
-        = image_tag 'slide-right.png'
-  %br
-  .brand
-    .container
-      .row
-        .col-md-12
-          .box-title
-            %h2 OUR BRAND
-      .row
-        .col-md-12
-          %ul.brands
-            %li
-              = image_tag 'clien-1.png'
-            %li
-              = image_tag 'clien-2.png'
-            %li
-              = image_tag 'clien-3.png'
-            %li
-              = image_tag 'clien-4.png'
-  %footer
-    / WIDGET ABOUT
-    .container
-      .row
-        .col-md-12
-          .wdgt-about
-            .row
-              .col-md-3
-                %img.logo-bottom{:alt => "", :src => "images/logo-black.png"}
-              .col-md-5
-                %h3.wdgt-title ABOUT US
-                %p Vivamus sit amet libero turpis, non venenatis urna. In blandit, odio convallis suscipit venenatis, ante ipsum cursus augue.
-                %a.iconize{:href => "javascript:;"}
-                  %i.fa.fa-facebook
-                %a.iconize{:href => "javascript:;"}
-                  %i.fa.fa-twitter
-                %a.iconize{:href => "javascript:;"}
-                  %i.fa.fa-google-plus
-                %a.iconize{:href => "javascript:;"}
-                  %i.fa.fa-rss
-              .col-md-4
-                %h3.wdgt-title EMAIL SUBSCRIBE
-                %p Sed blandit augue vitae augue scelerisque bibendum vivamus sit amet libero turpis.
-                %form
-                  %input.input-black{:name => "newsletter", :type => "text"}
-                    %input.btn-black{:name => "submit", :type => "submit"}
-  / END WIDGET ABOUT
-  / BEGIN WIDGET BOTTOM
+%section.navigation
   .container
     .row
       .col-md-12
-        %section.wdgt-bottom
+        %nav.navbar.navbar-default{:role => "navigation"}
+          .container-fluid
+            .navbar-header
+              %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+                %span.sr-only Toggle navigation
+                %span.icon-bar
+                %span.icon-bar
+                %span.icon-bar
+            #bs-example-navbar-collapse-1.collapse.navbar-collapse
+              %ul.nav.navbar-nav
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                    HOME
+                    %b.caret
+                  %ul.dropdown-menu
+                    %li
+                      %a{:href => "index.html"} Home Default
+                    %li
+                      %a{:href => "index-business.html"} Home Business Version
+                    %li
+                      %a{:href => "index-business-full-width-slider.html"} Home Business Alternative
+                %li
+                  %a{:href => "about.html"} ABOUT
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                    PAGES
+                    %b.caret
+                  %ul.dropdown-menu
+                    %li
+                      %a{:href => "404.html"} 404 Error page
+                    %li
+                      %a{:href => "about.html"} About
+                    %li
+                      %a{:href => "cart.html"} Cart
+                    %li
+                      %a{:href => "checkout.html"} Checkout
+                    %li
+                      %a{:href => "coming-soon.html"} Coming Soon
+                    %li
+                      %a{:href => "contact.html"} Contact
+                    %li
+                      %a{:href => "login.html"} Login
+                    %li
+                      %a{:href => "pricing-tables.html"} Pricing Tables
+                    %li
+                      %a{:href => "shop.html"} Shop
+                    %li
+                      %a{:href => "services.html"} Services
+                    %li
+                      %a{:href => "shortcodes.html"} Shortcode
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                    SHOP
+                    %b.caret
+                  %ul.dropdown-menu
+                    %li
+                      %a{:href => "shop.html"} Product List
+                    %li
+                      %a{:href => "product-detail.html"} Product Detail
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                    Blog
+                    %b.caret
+                  %ul.dropdown-menu
+                    %li
+                      %a{:href => "blog.html"} Blog Page
+                    %li
+                      %a{:href => "blog-post.html"} Blog Post Sidebar
+                    %li
+                      %a{:href => "full-width.html"} Blog Post Full Width
+                %li
+                  %a{:href => "shortcodes.html"} SHORTCODE
+                %li
+                  %a{:href => "contact.html"} CONTACT
+.topslider{:name => "slider"}
+  #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
+    %ol.carousel-indicators
+      %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
+      %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
+    .carousel-inner
+      .item.active.animated.fadeInUp
+        = image_tag 'top-slider/slide_1.jpg'
+        .caption
+          .slider-title.animated.fadeInDown.delay1 NO IDEA WITH YOUR USED FURNITURE?
+          .hidden-xs.delay2.slider-desc.animated.fadeIn FUrniTURE is the best place for you to sell your furniture.
+          .slider-button.animated.fadeInUp.delay3
+            %a{:href => "javascript:;"} NEW POST
+            %a{:href => "javascript:;"} SEARCH NEARBY FURNITURE
+      .item.animated.fadeInUp
+        = image_tag 'top-slider/slide_2.jpg'
+        .caption
+          .slider-title.animated.fadeInDown.delay1 PENNTASTIC FOUR
+          .hidden-xs.delay2.slider-desc.animated.fadeIn We are a team of 4 MCIT students at UPenn. <br>Energetic, curious and open-minded, we are ready to ROCK!
+          .slider-button.animated.fadeInUp.delay3
+            %a{:href => "javascript:;"} ABOUT US
+    %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example-generic"}
+      = image_tag 'slide-left.png'
+    %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-example-generic"}
+      = image_tag 'slide-right.png'
+%br
+.brand
+  .container
+    .row
+      .col-md-12
+        .box-title
+          %h2 OUR BRAND
+    .row
+      .col-md-12
+        %ul.brands
+          %li
+            = image_tag 'clien-1.png'
+          %li
+            = image_tag 'clien-2.png'
+          %li
+            = image_tag 'clien-3.png'
+          %li
+            = image_tag 'clien-4.png'
+%footer
+  / WIDGET ABOUT
+  .container
+    .row
+      .col-md-12
+        .wdgt-about
           .row
-            .col-md-3.col-sm-6
-              .widget-box
-                %h3.wdgt-title OPEN HOURS
-                %ul.openhour
-                  %li.openday Monday
-                  %li.opentime 12.00 AM &mdash; 10.12 PM
-                  %li.openday Tuesday
-                  %li.opentime 07.00 AM &mdash; 10.20 AM
-                  %li.opentime REST
-                  %li.opentime 02.00 PM &mdash; 09.31 PM
-                  %li.openday Sunday
-                  %li.opentime 07.00 AM &mdash; 11.00 PM
-            .col-md-3.col-sm-6
-              .widget-box
-                %h3.wdgt-title SHOP BY BRANDS
-                %ul.wdgt-ul
-                  %li
-                    %a{:href => "shop.html"} Maroon Sky
-                  %li
-                    %a{:href => "shop.html"} Charlizseky
-                  %li
-                    %a{:href => "shop.html"} Alamanda Series
-                  %li
-                    %a{:href => "shop.html"} HUGO BOSS
-                  %li
-                    %a{:href => "shop.html"} Preminioz
-                  %li
-                    %a{:href => "shop.html"} Avalantzche
-            .col-md-3.col-sm-6
-              .widget-box
-                %h3.wdgt-title MY ACCOUNT
-                %ul.wdgt-ul
-                  %li
-                    %a{:href => "javascript:;"} My Account
-                  %li
-                    %a{:href => "cart.html"} Shopping Cart
-                  %li
-                    %a{:href => "javascript:;"} Privacy Policies
-                  %li
-                    %a{:href => "javascript:;"} Referral
-            .col-md-3.col-sm-6
-              .widget-box
-                %h3.wdgt-title CONTACT
-                %p.wdgt-address
-                  %strong Housing Store
-                  901 Cherry Ave, San Bruno, CA 94066, United States
-                %p.wdgt-address
-                  %strong Office
-                  1600 Amphitheatre Pkwy, Mountain View, CA 94043, United States
-  .container
-    .row
-      .col-md-12
-        .shop-info
-          %p Tumbas Business Multipurpose Template
-          %p
-            Powered by
-            %a{:href => "javascript:;"} Bootstrap
-:javascript
-  $(document).ready(function(){
-    window.location = window.location.href + "#slider";
-  });
+            .col-md-3
+              %img.logo-bottom{:alt => "", :src => "images/logo-black.png"}
+            .col-md-5
+              %h3.wdgt-title ABOUT US
+              %p Vivamus sit amet libero turpis, non venenatis urna. In blandit, odio convallis suscipit venenatis, ante ipsum cursus augue.
+              %a.iconize{:href => "javascript:;"}
+                %i.fa.fa-facebook
+              %a.iconize{:href => "javascript:;"}
+                %i.fa.fa-twitter
+              %a.iconize{:href => "javascript:;"}
+                %i.fa.fa-google-plus
+              %a.iconize{:href => "javascript:;"}
+                %i.fa.fa-rss
+            .col-md-4
+              %h3.wdgt-title EMAIL SUBSCRIBE
+              %p Sed blandit augue vitae augue scelerisque bibendum vivamus sit amet libero turpis.
+              %form
+                %input.input-black{:name => "newsletter", :type => "text"}
+                  %input.btn-black{:name => "submit", :type => "submit"}
+/ END WIDGET ABOUT
+/ BEGIN WIDGET BOTTOM
+.container
+  .row
+    .col-md-12
+      %section.wdgt-bottom
+        .row
+          .col-md-3.col-sm-6
+            .widget-box
+              %h3.wdgt-title OPEN HOURS
+              %ul.openhour
+                %li.openday Monday
+                %li.opentime 12.00 AM &mdash; 10.12 PM
+                %li.openday Tuesday
+                %li.opentime 07.00 AM &mdash; 10.20 AM
+                %li.opentime REST
+                %li.opentime 02.00 PM &mdash; 09.31 PM
+                %li.openday Sunday
+                %li.opentime 07.00 AM &mdash; 11.00 PM
+          .col-md-3.col-sm-6
+            .widget-box
+              %h3.wdgt-title SHOP BY BRANDS
+              %ul.wdgt-ul
+                %li
+                  %a{:href => "shop.html"} Maroon Sky
+                %li
+                  %a{:href => "shop.html"} Charlizseky
+                %li
+                  %a{:href => "shop.html"} Alamanda Series
+                %li
+                  %a{:href => "shop.html"} HUGO BOSS
+                %li
+                  %a{:href => "shop.html"} Preminioz
+                %li
+                  %a{:href => "shop.html"} Avalantzche
+          .col-md-3.col-sm-6
+            .widget-box
+              %h3.wdgt-title MY ACCOUNT
+              %ul.wdgt-ul
+                %li
+                  %a{:href => "javascript:;"} My Account
+                %li
+                  %a{:href => "cart.html"} Shopping Cart
+                %li
+                  %a{:href => "javascript:;"} Privacy Policies
+                %li
+                  %a{:href => "javascript:;"} Referral
+          .col-md-3.col-sm-6
+            .widget-box
+              %h3.wdgt-title CONTACT
+              %p.wdgt-address
+                %strong Housing Store
+                901 Cherry Ave, San Bruno, CA 94066, United States
+              %p.wdgt-address
+                %strong Office
+                1600 Amphitheatre Pkwy, Mountain View, CA 94043, United States
+.container
+  .row
+    .col-md-12
+      .shop-info
+        %p Tumbas Business Multipurpose Template
+        %p
+          Powered by
+          %a{:href => "javascript:;"} Bootstrap
+-#:javascript
+-#  $(document).ready(function(){
+-#    window.location = window.location.href + "#slider";
+-#  });

@@ -4,6 +4,39 @@
     %title FUrniTURE
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.exp"
     = csrf_meta_tags
   %body
-    = yield
+    .outter
+      %section.top-block
+        .container
+          .row
+            .col-md-12
+              .sel-top
+      %section.header
+        .container
+          .row
+            .col-sm-6
+              .sitelogo-block
+                .logo
+                  %a{:href => "javascript:;"}
+                    = image_tag 'logo.png'
+                .titledesc
+                  %h1 FU<small>rni</small>TURE
+                  %span Best Used Furniture Trading Platform
+            .col-sm-6
+              .topinfo-block
+                %form{:method => "POST"}
+                  %input.input-search{:name => "search", :placeholder => "search", :type => "text", :value => ""}
+                    %button.submit-search{:name => "submit", :type => "submit"}
+                      %i.icon-search
+                %a.info.login{:href => "login.html"}
+                  %span.icon>
+                    %i.icon-lock
+                  Login
+                %a.info.cart{:href => "cart.html"}
+                  %span.icon>
+                    %i.icon-basket
+                  Cart
+                  %span 0
+      = yield
