@@ -26,9 +26,18 @@ class FurnituresController < ApplicationController
   # POST /furnitures
   # POST /furnitures.json
   def create
+    require 'openssl'
+    # require 'geokit'
     @furniture = Furniture.new(furniture_params)
     @furniture.user = current_user
-
+    @furniture.address = current_user.address
+    @furniture.phone = current_user.phone
+    @furniture.email = current_user.email
+    @location = Geokit::Geocoders::GoogleGeocoder.geocode @furniture.address
+    if @location.success
+      @furniture.latitude = @location.lat
+      @furniture.longitude = @location.lng
+    end
     respond_to do |format|
       if @furniture.save
         format.html { redirect_to @furniture, notice: 'Furniture was successfully created.' }

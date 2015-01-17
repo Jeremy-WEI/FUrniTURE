@@ -53,21 +53,21 @@
           .col-md-8
             = f.text_area :description, {class: "form-control", placeholder: "More detailed descrptions about your furniture."}
   %br
-  .row
-    .col-md-8
-      .field
-        = f.label :email
-        .row
-          .col-md-8
-            = f.text_field :email, {class: "form-control", placeholder: "Your email address shown to buyers (optional)"}
-  %br
-  .row
-    .col-md-8
-      .field
-        = f.label :phone
-        .row
-          .col-md-8
-            = f.text_field :phone, {class: "form-control", placeholder: "Your phone number shown to buyers (optional)"}
-  %br
+  -#.row
+  -#  .col-md-8
+  -#    .field
+  -#      = f.label :email
+  -#      .row
+  -#        .col-md-8
+  -#          = f.text_field :email, {class: "form-control", placeholder: "Your email address shown to buyers (optional)"}
+  -#%br
+  -#.row
+  -#  .col-md-8
+  -#    .field
+  -#      = f.label :phone
+  -#      .row
+  -#        .col-md-8
+  -#          = f.text_field :phone, {class: "form-control", placeholder: "Your phone number shown to buyers (optional)"}
+  -#%br
   .actions
     = f.submit 'Save'

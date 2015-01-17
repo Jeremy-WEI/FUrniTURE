@@ -33,7 +33,6 @@ gem 'carrierwave'
 gem 'mini_magick'
 
 gem 'geokit-rails'
-
 gem 'openssl'
 gem 'geokit'
 
