@@ -37,6 +37,10 @@
                 Price
                 %span
                   = "$" + @furniture.price.to_s
+              %a.info.cart{:href => ""}
+                %span.icon>
+                  %i.icon-basket
+                = link_to 'Add to Watch List', watchlists_path
             %ul.nav.nav-tabs
               %li.active
                 %a{"data-toggle" => "tab", :href => "#desc"} Description

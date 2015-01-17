@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   # devise_for :users
   resources :furnitures
 
+  post 'users/:id' => 'catalog#view'
+
   resources :watchlists do
     resources :furnitures
   end
