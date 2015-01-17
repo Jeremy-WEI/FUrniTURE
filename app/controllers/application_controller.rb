@@ -23,7 +23,6 @@ class ApplicationController < ActionController::Base
     address = @search.address
     # @miles = @search.distance
     @miles = 20
-    # @current_location = Geokit::Geocoders::GoogleGeocoder.geocode address
     @current_location = Geokit::Geocoders::GoogleGeocoder.geocode address
     furnitures = Furniture.all;
     @furnitures = [];
