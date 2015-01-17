@@ -1,11 +1,8 @@
--#%p#notice= notice
-/ DETAIL PRODUCT CONTENT
 %section.content-wrapper
   .container
     .row
       .col-md-4
         .content-box
-          / Begin Img Thumbnail
           .sp-wrap
             - if @furniture.picture1 != nil && @furniture.picture1 != ""
               %a{:href => @furniture.picture1}
@@ -22,17 +19,6 @@
             - if @furniture.picture4 != nil && @furniture.picture4 != ""
               %a{:href => @furniture.picture4}
                 %img{:alt => "There is no image attached.", :src => @furniture.picture4}
-          / end Img Thumbnail
-          -#%ul.product-option
-          -#  %li
-          -#    %a{:href => "javascript:;"} Short chair
-          -#    %span.opt-available Available
-          -#  %li
-          -#    %a{:href => "javascript:;"} Medium chair
-          -#    %span.opt-not-available Not available
-          -#  %li
-          -#    %a{:href => "javascript:;"} Long chair
-          -#    %span.opt-available Available
       .col-md-8
         .content-box
           .product-meta
@@ -61,7 +47,7 @@
               %li
                 %a{"data-toggle" => "tab", :href => "#reviews"} Reviews (1)
             / Tab panes
-            .tab-content
+            .tab-content.scroll-view
               #desc.tab-pane.fade.in.active
                 .row
                   .col-md-2
@@ -93,7 +79,7 @@
                 %b
                   %p{:style => 'color:red'}
                     = content_tag :div, class: "furniture_class", data: {furniture: @furniture} do end
-                  #map-location
+                #map-location
               #addinfo.tab-pane.fade
                 %p
                   %strong{:style => 'color:red'} Additional Information
@@ -151,31 +137,6 @@
                     %textarea.form-control{:rows => "5"}
                   %button.btn-black{:type => "submit"} Submit Review
         = button_to 'Back to Map', furnitures_path
--#.outter
--#  %section.content-wrapper
--#    .container
--#      .row
--#        .col-md-4
--#          .content-box
--#            / Begin Img Thumbnail
--#            .sp-wrap
--#              - if @furniture.picture1.to_s != ""
--#                %a{:href => @furniture.picture1}
--#                  %img{:alt => "There is no image attached.", :src => @furniture.picture1}
--#              - else
--#                %a{:href => image_url("product-1.jpg")}
--#                  %img{:alt => "There is no image attached.", :src => image_url("product-1-h.jpg")}
--#              - if @furniture.picture2.to_s != ""
--#                %a{:href => @furniture.picture2}
--#                  %img{:alt => "There is no image attached.", :src => @furniture.picture2}
--#              - if @furniture.picture3.to_s != ""
--#                %a{:href => @furniture.picture3}
--#                  %img{:alt => "There is no image attached.", :src => @furniture.picture3}
--#              - if @furniture.picture4.to_s != ""
--#                %a{:href => @furniture.picture4}
--#                  %img{:alt => "There is no image attached.", :src => @furniture.picture4}
-
-
 
 :javascript
   $(document).ready(function() {
@@ -186,10 +147,10 @@
     };
     var map = new google.maps.Map(document.getElementById('map-location'), mapOptions);
     function initialize() {
-        var here = new google.maps.Marker({
-            position: new google.maps.LatLng(location.latitude, location.longitude),
-            map: map,
-        })
+      var here = new google.maps.Marker({
+        position: new google.maps.LatLng(location.latitude, location.longitude),
+        map: map,
+      });
     }
     google.maps.event.addDomListener(window, 'load', initialize);
   });
