@@ -1,297 +1,144 @@
 -#%p#notice= notice
 / DETAIL PRODUCT CONTENT
-%section.content-wrapper
-  .container
-    .row
-      .col-md-4
-        .content-box
-          / Begin Img Thumbnail
-          .sp-wrap
-            %a{:href => "assets/product-1.jpg"}
-              %img{:alt => "", :src => "images/product-1.jpg"}
-            %a{:href => "assets/product-1-h.jpg"}
-              %img{:alt => "", :src => "images/product-1-h.jpg"}
-          / end Img Thumbnail
-          -#%ul.product-option
-          -#  %li
-          -#    %a{:href => "javascript:;"} Short chair
-          -#    %span.opt-available Available
-          -#  %li
-          -#    %a{:href => "javascript:;"} Medium chair
-          -#    %span.opt-not-available Not available
-          -#  %li
-          -#    %a{:href => "javascript:;"} Long chair
-          -#    %span.opt-available Available
-      .col-md-8
-        .content-box
-          .product-meta
-            %h1.product-title Aesop Quill Anti-Oxidant Kitchen Chair
-            %ul.product-breadcrumb
-              %li
-                %a{:href => "javscript:;"} Home
-              %li
-                %a{:href => "javscript:;"} Product
-              %li
-                %a{:href => "javscript:;"}
-                  -#= @furniture.
-              %li.current
-                %a{:href => "javscript:;"}
-                  = @furniture.title
-            .product-rating
-              %i.fa.fa-star
-              %i.fa.fa-star
-              %i.fa.fa-star
-              %i.fa.fa-star-half-o
-          .product-desc
-            .product-price
-              .price-new
-                Price
-                %span $12
-            %p
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              %a{:href => "javascript:;"} Phasellus quis
-              lectus metus, at posuere neque. Sed pharetra nibh eget orci convallis at posuere leo convallis. Sed blandit augue vitae augue scelerisque bibendum. Vivamus sit amet libero turpis, non venenatis urna. In blandit, odio convallis suscipit venenatis, ante ipsum cursus augue, et mollis nunc diam eget.
-            %ul
-              %li Sed blandit augue
-              %li Phasellus quis lectus
-              %li Odio convallis suscipit
-              %li Ipsum cursus augue
-            %ul.nav.nav-tabs
-              %li.active
-                %a{"data-toggle" => "tab", :href => "#desc"} Description
-              %li
-                %a{"data-toggle" => "tab", :href => "#addinfo"} Additional Information
-              %li
-                %a{"data-toggle" => "tab", :href => "#reviews"} Reviews (1)
-            / Tab panes
-            .tab-content
-              #desc.tab-pane.fade.in.active
-                %p
-                  %strong Item Description
-                %hr/
-                %p Phasellus quis lectus metus, at posuere neque. Sed pharetra nibh eget orci convallis at posuere leo convallis. Sed blandit augue vitae augue scelerisque bibendum. Vivamus sit amet libero turpis, non venenatis urna. In blandit, odio convallis suscipit venenatis, ante ipsum cursus augue.
-                %p Vivamus sit amet libero turpis, non venenatis urna. In blandit, odio convallis suscipit venenatis, ante ipsum
-                %blockquote
-                  %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
-                  %footer
-                    Someone famous in
-                    %cite{:title => "Source Title"} Source Title
-              #addinfo.tab-pane.fade
-                %p
-                  %strong Additional Information
-                %hr/
-                %table.product-shop-info
-                  %tbody
-                    %tr
-                      %th Size
-                      %td
-                        %p Long, Medium, Short
-                    %tr
-                      %th Colour
-                      %td
-                        %p Pearl
-                    %tr
-                      %th Size &amp; Fit
-                      %td
-                        %p This style comes in a regular fit which fits true to size.
-                    %tr
-                      %th Other Info
-                      %td
-                        %p Odio convallis suscipit venenatis, ante ipsum
-              #reviews.tab-pane.fade
-                %p
-                  %strong Customer Reviews
-                %hr/
-                .media
-                  %a.pull-left{:href => "javascript:;"}
-                    %img.media-object{:alt => "64x64", "data-src" => "holder.js/64x64", :src => "images/avatar-1.jpg", :style => "width: 64px; height: 64px;"}
-                      .product-rating
-                        %i.fa.fa-star
-                        %i.fa.fa-star
-                        %i.fa.fa-star
-                        %i.fa.fa-star
-                        %i.fa.fa-star-half-o
-                  .media-body
-                    %h5.media-heading John Donec
-                    %p Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                %hr/
-                %h4 Add your review
-                %p
-                %form{:role => "form"}
-                  .form-group
-                    %input#exampleInputEmail1.form-control{:placeholder => "Name", :type => "text"}
-                  .form-group
-                    %input#exampleInputPassword1.form-control{:placeholder => "Email", :type => "text"}
-                  .form-group
-                    %select.form-control
-                      %option 1 star
-                      %option 2 stars
-                      %option 3 stars
-                      %option 4 stars
-                      %option 5 stars
-                  .form-group
-                    %textarea.form-control{:rows => "5"}
-                  %button.btn-black{:type => "submit"} Submit Review
-    .row
-      .col-md-12
-        .box-title
-          %h2 RELATED PRODUCTS
-    .row
-      .col-md-3.col-xs-6
-        .product-block
-          .product-image
-            %a{:href => "javascript:;"}
-              %figure.product-display
-                %img.product-mainpic{:alt => "", :src => "images/product-4.jpg", :style => "display: block;"}
-                  %img.product-secondpic{:alt => "", :src => "images/product-4-h.jpg"}
-          .product-meta
-            .product-action
-              %a.addcart{:href => "javascript:;"}
-                %i.icon-basket
-                Add to cart
-              /
-              %a.wishlist{:href => "javascript:;"}
-                %i.fa.fa-heart
-              /
-              %a.compare{:href => "javascript:;"}
-                %i.fa.fa-retweet
-          .product-info
-            %a{:href => "javascript:;"}
-              %h5.product-name Baked Chair
-            .product-price
-              %span $250
-          .product-rating
-            %i.fa.fa-star
-            %i.fa.fa-star
-            %i.fa.fa-star
-      .col-md-3.col-xs-6
-        .product-block
-          .product-image
-            %a{:href => "javascript:;"}
-              %figure.product-display
-                %span.product-label-special.label
-                  %i Sale
-                  %span.special 50%
-                %img.product-mainpic{:alt => "", :src => "images/product-1.jpg", :style => "display: block;"}
-                  %img.product-secondpic{:alt => "", :src => "images/product-1-h.jpg"}
-          .product-meta
-            .product-action
-              %a.addcart{:href => "javascript:;"}
-                %i.icon-basket
-                Add to cart
-              /
-              %a.wishlist{:href => "javascript:;"}
-                %i.fa.fa-heart
-              /
-              %a.compare{:href => "javascript:;"}
-                %i.fa.fa-retweet
-          .product-info
-            %a{:href => "javascript:;"}
-              %h5.product-name Baked Chair
-            .product-price
-              %span.oldprice $800
-              %span.newprice $150
-          .product-rating
-            %i.fa.fa-star
-            %i.fa.fa-star
-            %i.fa.fa-star
-      .col-md-3.col-xs-6
-        .product-block
-          .product-image
-            %a{:href => "javascript:;"}
-              %figure.product-display
-                %img.product-mainpic{:alt => "", :src => "images/product-3.jpg", :style => "display: block;"}
-                  %img.product-secondpic{:alt => "", :src => "images/product-3-h.jpg"}
-          .product-meta
-            .product-action
-              %a.addcart{:href => "javascript:;"}
-                %i.icon-basket
-                Add to cart
-              /
-              %a.wishlist{:href => "javascript:;"}
-                %i.fa.fa-heart
-              /
-              %a.compare{:href => "javascript:;"}
-                %i.fa.fa-retweet
-          .product-info
-            %a{:href => "javascript:;"}
-              %h5.product-name Baked Chair
-            .product-price
-              %span.oldprice $800
-              %span.newprice $150
-          .product-rating
-            %i.fa.fa-star
-            %i.fa.fa-star
-            %i.fa.fa-star
-      .col-md-3.col-xs-6
-        .product-block
-          .product-image
-            %a{:href => "javascript:;"}
-              %figure.product-display
-                %span.product-label-special.label
-                  %i Sale
-                  %span.special 50%
-                %img.product-mainpic{:alt => "", :src => "images/product-1.jpg", :style => "display: block;"}
-                  %img.product-secondpic{:alt => "", :src => "images/product-1-h.jpg"}
-          .product-meta
-            .product-action
-              %a.addcart{:href => "javascript:;"}
-                %i.icon-basket
-                Add to cart
-              /
-              %a.wishlist{:href => "javascript:;"}
-                %i.fa.fa-heart
-              /
-              %a.compare{:href => "javascript:;"}
-                %i.fa.fa-retweet
-          .product-info
-            %a{:href => "javascript:;"}
-              %h5.product-name Baked Chair
-            .product-price
-              %span.oldprice $800
-              %span.newprice $150
-          .product-rating
-            %i.fa.fa-star
-            %i.fa.fa-star
-            %i.fa.fa-star
-/ END DETAIL PRODUCT CONTENT
-%p
-  %b Title:
-  = @furniture.title
-%p
-  %b Tag:
-  = @furniture.tag
-%p
-  %b Picture1:
-  = @furniture.picture1
-%p
-  %b Picture2:
-  = @furniture.picture2
-%p
-  %b Picture3:
-  = @furniture.picture3
-%p
-  %b Picture4:
-  = @furniture.picture4
-%p
-  %b Price:
-  = @furniture.price
-%p
-  %b Description:
-  = @furniture.description
-%p
-  %b Email:
-  = @furniture.email
-%p
-  %b Phone:
-  = @furniture.phone
-%p
-  %b Latitude:
-  = @furniture.latitude
-%p
-  %b Longitude:
-  = @furniture.longitude
+.outter
+  %section.content-wrapper
+    .container
+      .row
+        .col-md-4
+          .content-box
+            / Begin Img Thumbnail
+            .sp-wrap
+              - if @furniture.picture1.to_s != ""
+                %a{:href => @furniture.picture1}
+                  %img{:alt => "There is no image attached.", :src => @furniture.picture1}
+              - else
+                %a{:href => image_url("product-1.jpg")}
+                  %img{:alt => "There is no image attached.", :src => image_url("product-1-h.jpg")}
+              - if @furniture.picture2.to_s != ""
+                %a{:href => @furniture.picture2}
+                  %img{:alt => "There is no image attached.", :src => @furniture.picture2}
+              - if @furniture.picture3.to_s != ""
+                %a{:href => @furniture.picture3}
+                  %img{:alt => "There is no image attached.", :src => @furniture.picture3}
+              - if @furniture.picture4.to_s != ""
+                %a{:href => @furniture.picture4}
+                  %img{:alt => "There is no image attached.", :src => @furniture.picture4}
+        .col-md-8
+          .content-box
+            .product-meta
+              %h1.product-title
+                = @furniture.picture4
+                = @furniture.title
+              %ul.product-breadcrumb
+                %li
+                  %a{:href => "javscript:;"}
+                    = @furniture.user
+                %li.current
+                  %a{:href => "javscript:;"}
+                    = @furniture.title
+            .product-desc
+              .product-price
+                .price-new
+                  Price
+                  %span
+                    = "$" + @furniture.price.to_s
+              %ul.nav.nav-tabs
+                %li.active
+                  %a{"data-toggle" => "tab", :href => "#desc"} Description
+                %li
+                  %a{"data-toggle" => "tab", :href => "#addr"} Address
+                %li
+                  %a{"data-toggle" => "tab", :href => "#addinfo"} Additional Information
+                %li
+                  %a{"data-toggle" => "tab", :href => "#reviews"} Reviews (1)
+              / Tab panes
+              .tab-content
+                #desc.tab-pane.fade.in.active
+                  .row
+                    .col-md-2
+                      .product-tag
+                        .product-tag-content
+                          %span
+                            = @furniture.tag.to_s
+                  %p.text-left
+                    %strong
+                      Description:
+                  %p.text-left
+                    = @furniture.description
+                  %p.text-left
+                    %strong
+                      Contact's Email:
+                  %p.text-left
+                    = @furniture.email
+                  %p.text-left
+                    %strong
+                      Phone Number:
+                  %p.text-left
+                    = @furniture.phone
+                #addr.tab-pane.fade
+                  %b
+                    Address
+                  - if @furniture.user != nil
+                    = @furniture.user.address
+                  %br
+                  %b
+                    %p{:style => 'color:red'}
+                      ADD A MAP HERE?
+                #addinfo.tab-pane.fade
+                  %p
+                    %strong{:style => 'color:red'} Additional Information
+                  %hr/
+                  %table.product-shop-info
+                    %tbody
+                      %tr
+                        %th Size
+                        %td
+                          %p Long, Medium, Short
+                      %tr
+                        %th Colour
+                        %td
+                          %p Pearl
+                      %tr
+                        %th Size &amp; Fit
+                        %td
+                          %p This style comes in a regular fit which fits true to size.
+                      %tr
+                        %th Other Info
+                        %td
+                          %p Odio convallis suscipit venenatis, ante ipsum
+                #reviews.tab-pane.fade
+                  %p
+                    %strong{:style => 'color:red'} Customer Reviews
+                  %hr/
+                  .media
+                    %a.pull-left{:href => "javascript:;"}
+                      %img.media-object{:alt => "64x64", "data-src" => "holder.js/64x64", :src => image_url("avatar-1.jpg"), :style => "width: 64px; height: 64px;"}
+                        .product-rating
+                          %i.fa.fa-star
+                          %i.fa.fa-star
+                          %i.fa.fa-star
+                          %i.fa.fa-star
+                          %i.fa.fa-star-half-o
+                    .media-body
+                      %h5.media-heading John Donec
+                      %p Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                  %hr/
+                  %h4 Add your review
+                  %p
+                  %form{:role => "form"}
+                    .form-group
+                      %input#exampleInputEmail1.form-control{:placeholder => "Name", :type => "text"}
+                    .form-group
+                      %input#exampleInputPassword1.form-control{:placeholder => "Email", :type => "text"}
+                    .form-group
+                      %select.form-control
+                        %option 1 star
+                        %option 2 stars
+                        %option 3 stars
+                        %option 4 stars
+                        %option 5 stars
+                    .form-group
+                      %textarea.form-control{:rows => "5"}
+                    %button.btn-black{:type => "submit"} Submit Review
+          = button_to 'Back to Map', furnitures_path
 
-= link_to 'Edit', edit_furniture_path(@furniture)
-\|
-= link_to 'Back', furnitures_path
