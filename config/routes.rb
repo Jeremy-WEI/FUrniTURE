@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :watchlists
+
   root 'application#welcome'
   devise_for :users
   resources :furnitures

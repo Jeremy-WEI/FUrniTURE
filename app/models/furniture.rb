@@ -7,4 +7,5 @@ class Furniture < ActiveRecord::Base
   mount_uploader :picture4, PictureUploader
 
   belongs_to :user
+  belongs_to :watchlist
 end
