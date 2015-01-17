@@ -31,11 +31,11 @@ class FurnituresController < ApplicationController
     @furniture.address = current_user.address
     @furniture.phone = current_user.phone
     @furniture.email = current_user.email
-    # @location = Geokit::Geocoders::GoogleGeocoder.geocode @furniture.address
-    # if @location.success
-    #   @furniture.latitude = @location.lat
-    #   @furniture.longitude = @location.lng
-    # end
+    @location = Geokit::Geocoders::GoogleGeocoder.geocode "3131 Walnut Street, Philadelphia"
+    if @location.success
+      @furniture.latitude = @location.lat
+      @furniture.longitude = @location.lng
+    end
     respond_to do |format|
       if @furniture.save
         format.html { redirect_to @furniture, notice: 'Furniture was successfully created.' }
