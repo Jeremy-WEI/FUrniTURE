@@ -8,5 +8,7 @@ Rails.application.routes.draw do
 
   get 'watchlists/my_watch_list', to: 'watchlists#show'
   get 'watchlists/my_watch_list/edit', to: 'watchlists#edit'
+  post 'users/:id' => 'catalog#view'
+
   # get '/welcome', to: 'application#welcome'
 end
