@@ -11,7 +11,8 @@
     = f.text_field :title
   .field
     = f.label :tag
-    = f.text_field :tag
+    = f.select :tag, ['chair', 'desk', 'bed', 'shelter']
+
   .field
     = f.label :picture1
     = f.file_field :picture1
