@@ -38,7 +38,7 @@ class WatchlistsController < ApplicationController
 
   private
     def set_watchlist
-      @watchlist = Watchlist.find(params[:id])
+      @watchlist = current_user.watchlist
     end
 
     def watchlist_params

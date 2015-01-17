@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20150117182742) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "address"
-    t.float    "oldness"
     t.integer  "watchlist_id"
+    t.float    "oldness"
   end
 
   add_index "furnitures", ["user_id"], name: "index_furnitures_on_user_id"
