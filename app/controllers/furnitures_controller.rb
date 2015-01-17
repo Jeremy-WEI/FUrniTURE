@@ -5,6 +5,8 @@ class FurnituresController < ApplicationController
   # GET /furnitures.json
   def index
     @furnitures = Furniture.all
+    @currentLocation = [35, 140]
+    @miles = 100
   end
 
   # GET /furnitures/1
