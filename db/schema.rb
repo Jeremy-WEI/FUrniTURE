@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150117170018) do
+ActiveRecord::Schema.define(version: 20150117180211) do
 
   create_table "furnitures", force: true do |t|
     t.string   "title"
@@ -30,9 +30,11 @@ ActiveRecord::Schema.define(version: 20150117170018) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "address"
+    t.integer  "watchlist_id"
   end
 
   add_index "furnitures", ["user_id"], name: "index_furnitures_on_user_id"
+  add_index "furnitures", ["watchlist_id"], name: "index_furnitures_on_watchlist_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -59,6 +61,9 @@ ActiveRecord::Schema.define(version: 20150117170018) do
   create_table "watchlists", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "watchlists", ["user_id"], name: "index_watchlists_on_user_id"
 
 end
