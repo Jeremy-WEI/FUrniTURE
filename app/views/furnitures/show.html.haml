@@ -79,7 +79,7 @@
                 %b
                   %p{:style => 'color:red'}
                     = content_tag :div, class: "furniture_class", data: {furniture: @furniture} do end
-                -##map-location
+                #map-location
               #addinfo.tab-pane.fade
                 %p
                   %strong{:style => 'color:red'} Additional Information
@@ -140,6 +140,7 @@
 
 :javascript
   $(document).ready(function() {
+
     var location = $('.furniture_class').data('furniture');
     var mapOptions = {
       zoom: 4,
@@ -148,13 +149,16 @@
     var map;
     function initialize() {
       var here = new google.maps.Marker({
+        //position: new google.maps.LatLng(20, 30),
         position: new google.maps.LatLng(location.latitude, location.longitude),
         map: map,
       });
     }
     $("#addr").show(function() {
       map = new google.maps.Map(document.getElementById('map-location'), mapOptions);
+      initialize();
       google.maps.event.addDomListener(window, 'load', initialize);
-      google.maps.event.trigger(map, 'resize');
+      //google.maps.event.trigger(map, 'resize');
     });
+
   });
