@@ -8,17 +8,23 @@ class ApplicationController < ActionController::Base
 
   end
 
-  def search
-    # cri1 = asdjkl
-    # cri2 = sadjlsa
-    # lat = 1
-    # lon = 1
-    #
-    #
-    #
-    # results = []
-    # render 'furnitures/index'
-  end
-  
+  # def search
+  #   tag = @search.tag
+  #   price = @search.price
+  #   address = @search.address
+  #   @miles = @search.distance
+  #   @currentLocation = Geokit::Geocoders::GoogleGeocoder.geocode address
+  #   furnituresAll = Furniture.all;
+  #   @furnitures = [];
+  #   if @currentLocation.success
+  #     furnituresAll.each do |f|
+  #       location = Geokit::LatLng.new(f.latitude, f.longitude)
+  #       if f.type == tag and f.price < price and location.distance_to(@currentLocation) <= @miles
+  #         @furnitures.append(f)
+  #       end
+  #     end
+  #   end
+  # end
+  # render "furnitures/index"
 
 end

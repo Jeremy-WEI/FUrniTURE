@@ -51,6 +51,11 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.2.2)
+    geokit (1.9.0)
+      multi_json (>= 1.3.2)
+    geokit-rails (2.0.1)
+      geokit (~> 1.5)
+      rails (>= 3.0)
     haml (4.0.5)
       tilt
     haml-rails (0.6.0)
@@ -80,6 +85,7 @@ GEM
     mini_magick (4.0.2)
     minitest (5.5.1)
     multi_json (1.10.1)
+    openssl (1.0.0.beta)
     orm_adapter (0.5.0)
     rack (1.5.2)
     rack-test (0.6.3)
@@ -147,11 +153,14 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.0.0)
   devise
+  geokit
+  geokit-rails
   haml
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails
   mini_magick
+  openssl
   rails (= 4.1.6)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
