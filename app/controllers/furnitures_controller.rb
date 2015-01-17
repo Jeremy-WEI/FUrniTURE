@@ -5,6 +5,8 @@ class FurnituresController < ApplicationController
   # GET /furnitures.json
   def index
     @furnitures = Furniture.all
+    @currentLocation = [35, 140]
+    @miles = 100
   end
 
   # GET /furnitures/1
@@ -25,6 +27,7 @@ class FurnituresController < ApplicationController
   # POST /furnitures.json
   def create
     @furniture = Furniture.new(furniture_params)
+    @furniture.user = current_user
 
     respond_to do |format|
       if @furniture.save
