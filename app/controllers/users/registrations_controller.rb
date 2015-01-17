@@ -11,6 +11,7 @@ before_filter :configure_account_update_params, only: [:update]
   def create
     super
     resource.create_watchlist
+    resource.create_profile
   end
 
   # GET /resource/edit
