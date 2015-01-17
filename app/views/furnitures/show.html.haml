@@ -92,7 +92,8 @@
                 %br
                 %b
                   %p{:style => 'color:red'}
-                    ADD A MAP HERE?
+                    = content_tag :div, class: "furniture_class", data: {furniture: @furniture} do end
+                  #map-location
               #addinfo.tab-pane.fade
                 %p
                   %strong{:style => 'color:red'} Additional Information
@@ -151,3 +152,39 @@
                   %button.btn-black{:type => "submit"} Submit Review
         = button_to 'Back to Map', furnitures_path
 
+:javascript
+  $(document).ready(function() {
+    function initialize() {
+      var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+      var mapOptions = {
+        zoom: 4,
+        center: myLatlng
+      }
+      var map = new google.maps.Map(document.getElementById('map-location'), mapOptions);
+
+      var marker = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+          title: 'Hello World!'
+      });
+    }
+    //var location = $('.furniture_class').data('furniture');
+    //var mapOptions = {
+    //  zoom: 10,
+    //  center: new google.maps.LatLng(location.latitude, location.longitude)
+    //};
+    //var map = new google.maps.Map(document.getElementById('map-location'), mapOptions);
+    //function initialize() {
+    //    var here = new google.maps.Marker({
+    //        position: new google.maps.LatLng(location.latitude, location.longitude),
+    //        map: map,
+    //    })
+    //}
+
+    //function RadiusToZoom(radius){
+    //    return Math.round(14-Math.log(radius)/Math.LN2);
+    //}
+
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+  });
