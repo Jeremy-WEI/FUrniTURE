@@ -33,7 +33,8 @@ class FurnituresController < ApplicationController
     @furniture.address = current_user.address
     @furniture.phone = current_user.phone
     @furniture.email = current_user.email
-    @location = Geokit::Geocoders::GoogleGeocoder.geocode @furniture.address
+    # @location = Geokit::Geocoders::GoogleGeocoder.geocode @furniture.address
+    @location = Geokit::Geocoders::GoogleGeocoder.geocode "3131 Walnut Street, Philadelphia"
     if @location.success
       @furniture.latitude = @location.lat
       @furniture.longitude = @location.lng
