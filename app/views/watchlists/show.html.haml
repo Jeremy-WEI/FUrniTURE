@@ -6,7 +6,8 @@
         -#%h3.wdgt-title PRODUCT LIST
         %ul.wdgt-product
           - @watchlist.furnitures.each do |furniture|
-            = render 'furniture_brief', furniture: furniture
-      = link_to 'Edit', '/watchlists/my_watch_list/edit'
+            = render 'furnitures/furniture_brief', furniture: furniture
+            = button_to 'unwatch', "/watchlists/#{furniture.id}", method: :post
+      = link_to 'Edit', '/my_watch_list/edit'
       \|
       = link_to 'Back', furnitures_path

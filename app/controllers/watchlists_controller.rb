@@ -1,5 +1,5 @@
 class WatchlistsController < ApplicationController
-  before_action :set_watchlist, only: [:show, :edit, :update, :destroy]
+  before_action :set_watchlist, only: [:show, :edit, :update, :destroy, :unwatch]
 
   respond_to :html
 
@@ -20,6 +20,15 @@ class WatchlistsController < ApplicationController
   def edit
   end
 
+  def unwatch
+    @furniture = @watchlist.furnitures.find(params[:furniture_id])
+    if @watchlist && @furniture
+      @furniture.watchlists.delete(@watchlist)
+    end
+    render '/my_watch_list'
+    # @furniture.watchlists.destroy(@watchlist)
+  end
+
   def create
     @watchlist = Watchlist.new(watchlist_params)
     @watchlist.save
@@ -35,6 +44,7 @@ class WatchlistsController < ApplicationController
     @watchlist.destroy
     respond_with(@watchlist)
   end
+
 
   private
     def set_watchlist

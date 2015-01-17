@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   # devise_for :users
   resources :furnitures
 
-  get 'watchlists/my_watch_list', to: 'watchlists#show'
-  get 'watchlists/my_watch_list/edit', to: 'watchlists#edit'
-  post 'users/:id' => 'catalog#view'
-
+  get '/my_watch_list', to: 'watchlists#show'
+  get '/my_watch_list/edit', to: 'watchlists#edit'
+  # post '/furnitures/:id', to: 'furnitures#addfurniture'
+  post '/watchlists/:furniture_id', to: 'watchlists#unwatch'
   # get '/welcome', to: 'application#welcome'
 end
