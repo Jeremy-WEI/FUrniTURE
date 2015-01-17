@@ -1,6 +1,5 @@
 / CONTACT CONTENT
-%br
-%br
+%hr
 .outter
   %section.content-wrapper
     .container
@@ -11,4 +10,6 @@
               .content-box
                 %h3 Add a new furniture
                 = render 'form'
-      / END CONTACT CONTENT
+= link_to 'Show', @furniture
+\|
+= link_to 'Back', furnitures_path
