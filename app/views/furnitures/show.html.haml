@@ -12,16 +12,16 @@
             %a{:href => "assets/product-1-h.jpg"}
               %img{:alt => "", :src => "images/product-1-h.jpg"}
           / end Img Thumbnail
-          %ul.product-option
-            %li
-              %a{:href => "javascript:;"} Short chair
-              %span.opt-available Available
-            %li
-              %a{:href => "javascript:;"} Medium chair
-              %span.opt-not-available Not available
-            %li
-              %a{:href => "javascript:;"} Long chair
-              %span.opt-available Available
+          -#%ul.product-option
+          -#  %li
+          -#    %a{:href => "javascript:;"} Short chair
+          -#    %span.opt-available Available
+          -#  %li
+          -#    %a{:href => "javascript:;"} Medium chair
+          -#    %span.opt-not-available Not available
+          -#  %li
+          -#    %a{:href => "javascript:;"} Long chair
+          -#    %span.opt-available Available
       .col-md-8
         .content-box
           .product-meta
@@ -32,9 +32,11 @@
               %li
                 %a{:href => "javscript:;"} Product
               %li
-                %a{:href => "javscript:;"} Chair
+                %a{:href => "javscript:;"}
+                  -#= @furniture.
               %li.current
-                %a{:href => "javscript:;"} Aesop Quill Anti-Oxidant Kitchen Chair
+                %a{:href => "javscript:;"}
+                  = @furniture.title
             .product-rating
               %i.fa.fa-star
               %i.fa.fa-star
@@ -42,15 +44,9 @@
               %i.fa.fa-star-half-o
           .product-desc
             .product-price
-              .price-old
-                Old Price
-                %span $25
               .price-new
-                New Price
+                Price
                 %span $12
-              .price-sale
-                Sale
-                %span 50%
             %p
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               %a{:href => "javascript:;"} Phasellus quis
@@ -136,7 +132,6 @@
                   .form-group
                     %textarea.form-control{:rows => "5"}
                   %button.btn-black{:type => "submit"} Submit Review
-/ END TAB
     .row
       .col-md-12
         .box-title
