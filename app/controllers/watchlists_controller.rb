@@ -25,7 +25,7 @@ class WatchlistsController < ApplicationController
     if @watchlist && @furniture
       @furniture.watchlists.delete(@watchlist)
     end
-    render '/my_watch_list'
+    render 'watchlists/show'
     # @furniture.watchlists.destroy(@watchlist)
   end
 

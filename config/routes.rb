@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/my_watch_list', to: 'watchlists#show'
   get '/my_watch_list/edit', to: 'watchlists#edit'
   # post '/furnitures/:id', to: 'furnitures#addfurniture'
-  post '/watchlists/:furniture_id', to: 'watchlists#unwatch'
+  post '/my_watch_list/:furniture_id', to: 'watchlists#unwatch'
 
   get '/search', to: 'furnitures#search'
   resources :users
