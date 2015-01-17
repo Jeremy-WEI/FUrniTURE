@@ -37,6 +37,10 @@
                 Price
                 %span
                   = "$" + @furniture.price.to_s
+              %a.info.cart{:href => ""}
+                %span.icon>
+                  %i.icon-basket
+                = link_to 'Add to Watch List', watchlists_path
             %ul.nav.nav-tabs
               %li.active
                 %a{"data-toggle" => "tab", :href => "#desc"} Description
@@ -44,9 +48,6 @@
                 %a{"data-toggle" => "tab", :href => "#addr"} Address
               %li
                 %a{"data-toggle" => "tab", :href => "#addinfo"} Additional Information
-              %li
-                %a{"data-toggle" => "tab", :href => "#reviews"} Reviews (1)
-            / Tab panes
             .tab-content.scroll-view
               #desc.tab-pane.fade.in.active
                 .row
@@ -60,6 +61,11 @@
                     Description:
                 %p.text-left
                   = @furniture.description
+                %p.text-left
+                  %strong
+                    Oldness:
+                %p.text-left
+                  = @furniture.oldness
                 %p.text-left
                   %strong
                     Contact's Email:
@@ -102,104 +108,46 @@
                       %th Other Info
                       %td
                         %p Odio convallis suscipit venenatis, ante ipsum
-              #reviews.tab-pane.fade
-                %p
-                  %strong{:style => 'color:red'} Customer Reviews
-                %hr/
-                .media
-                  %a.pull-left{:href => "javascript:;"}
-                    %img.media-object{:alt => "64x64", "data-src" => "holder.js/64x64", :src => image_url("avatar-1.jpg"), :style => "width: 64px; height: 64px;"}
-                      .product-rating
-                        %i.fa.fa-star
-                        %i.fa.fa-star
-                        %i.fa.fa-star
-                        %i.fa.fa-star
-                        %i.fa.fa-star-half-o
-                  .media-body
-                    %h5.media-heading John Donec
-                    %p Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                %hr/
-                %h4 Add your review
-                %p
-                %form{:role => "form"}
-                  .form-group
-                    %input#exampleInputEmail1.form-control{:placeholder => "Name", :type => "text"}
-                  .form-group
-                    %input#exampleInputPassword1.form-control{:placeholder => "Email", :type => "text"}
-                  .form-group
-                    %select.form-control
-                      %option 1 star
-                      %option 2 stars
-                      %option 3 stars
-                      %option 4 stars
-                      %option 5 stars
-                  .form-group
-                    %textarea.form-control{:rows => "5"}
-                  %button.btn-black{:type => "submit"} Submit Review
-        -#= button_to 'Back to Map', furnitures_path
+
 %section.content-wrapper
+  .container
+    .row
+      .col-md-12
+        .box-title
+          %h2 YOU MAY ALSO INTERESTED ...
   .row
     .col-md-12
-      .box-title
-        %h2 YOU MAY ALSO INTERESTED ...
-  .row
-    -#.col-md-3.col-xs-6
-    -#  .product-block
-    -#    .product-image
-    -#      %a{:href => "javascript:;"}
-    -#        %figure.product-display
-    -#          %img.product-mainpic{:alt => "", :src => "images/product-4.jpg", :style => "display: block;"}
-    -#            %img.product-secondpic{:alt => "", :src => "images/product-4-h.jpg"}
-    -#    .product-meta
-    -#      .product-action
-    -#        %a.addcart{:href => "javascript:;"}
-    -#          %i.icon-basket
-    -#          Add to cart
-    -#        /
-    -#        %a.wishlist{:href => "javascript:;"}
-    -#          %i.fa.fa-heart
-    -#        /
-    -#        %a.compare{:href => "javascript:;"}
-    -#          %i.fa.fa-retweet
-    -#    .product-info
-    -#      %a{:href => "javascript:;"}
-    -#        %h5.product-name Baked Chair
-    -#      .product-price
-    -#        %span $250
-    -#    .product-rating
-    -#      %i.fa.fa-star
-    -#      %i.fa.fa-star
-    -#      %i.fa.fa-star
-    -@related_furnitures.each do |furniture|
-      .col-md-3.col-xs-6
-        .product-block
-          .product-image
-            %a{:href => "javascript:;"}
-              %figure.product-display
-                %span.product-label-special.label
-                %img.product-mainpic{:alt => "", :src => "images/product-1.jpg", :style => "display: block;"}
-                  %img.product-secondpic{:alt => "", :src => "images/product-1-h.jpg"}
-          .product-meta
-            .product-action
-              %a.addcart{:href => "javascript:;"}
-                %i.icon-basket
-                Add to WatchList
-              %a.wishlist{:href => "javascript:;"}
-                %i.fa.fa-heart
-              %a.compare{:href => "#{furniture.user}"}
-                %i.fa.fa-eye
-                = furniture.user
-          .product-info
-            %a{:href => "javascript:;"}
-              %h5.product-name= furniture.title
-            .product-price
-              %span.newprice== $ #{furniture.price}
-          .product-rating
-            %i.fa.fa-star
-            %i.fa.fa-star
-            %i.fa.fa-star
-            %i.fa.fa-star
-            %i.fa.fa-star
+      -@related_furnitures.each do |furniture|
+        .col-md-3.col-xs-6
+          .product-block
+            .product-image
+              %a{:href => "javascript:;"}
+                %figure.product-display
+                  %span.product-label-special.label
+                  %img.product-mainpic{:alt => "", :src => "images/product-1.jpg", :style => "display: block;"}
+                    %img.product-secondpic{:alt => "", :src => "images/product-1-h.jpg"}
+            .product-meta
+              .product-action
+                %a.addcart{:href => "javascript:;"}
+                  %i.icon-basket
+                  Add to WatchList
+                %a.wishlist{:href => "javascript:;"}
+                  %i.fa.fa-heart
+                %a.compare{:href => "#{furniture.user}"}
+                  %i.fa.fa-eye
+                  = furniture.user
+            .product-info
+              %a{:href => "javascript:;"}
+                %h5.product-name= furniture.title
+              .product-price
+                %span.newprice== $ #{furniture.price}
+            .product-rating
+              %i.fa.fa-star
+              %i.fa.fa-star
+              %i.fa.fa-star
+              %i.fa.fa-star
+              %i.fa.fa-star
+
 
 :javascript
   $(document).ready(function() {
