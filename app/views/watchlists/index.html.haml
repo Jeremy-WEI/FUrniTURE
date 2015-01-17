@@ -1,13 +1,4 @@
-%h1 My Watchlists
 
-.row
-  .col-md-8.scroll-view
-    %section.content-wrapper
-      .widget-box.sidebar
-        -#%h3.wdgt-title PRODUCT LIST
-        %ul.wdgt-product
-          -current_user.furnitures.each do |furniture|
-            = render 'furniture_brief', furniture: furniture
 
 -#%table
 -#  %thead

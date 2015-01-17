@@ -42,6 +42,10 @@ class FurnituresController < ApplicationController
   def edit
   end
 
+  def addfurniture
+    current_user.watchlist
+  end
+
   # POST /furnitures
   # POST /furnitures.json
   def create

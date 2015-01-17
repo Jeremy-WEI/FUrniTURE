@@ -7,12 +7,17 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {:registrations => "users/registrations"}
   # devise_for :users
   resources :furnitures
+
+
+  get '/my_watch_list', to: 'watchlists#show'
+  get '/my_watch_list/edit', to: 'watchlists#edit'
+  # post '/furnitures/:id', to: 'furnitures#addfurniture'
+  post '/watchlists/:furniture_id', to: 'watchlists#unwatch'
+
   get '/search', to: 'furnitures#search'
   resources :users
 
-  resources :watchlists do
-    resources :furnitures
-  end
+
 
   # get '/welcome', to: 'application#welcome'
 end

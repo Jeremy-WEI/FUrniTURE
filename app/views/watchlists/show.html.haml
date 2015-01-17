@@ -1,6 +1,13 @@
-%p#notice= notice
-
-
-= link_to 'Edit', edit_watchlist_path(@watchlist)
-\|
-= link_to 'Back', watchlists_path
+%h3 My Watch List
+.row
+  .col-md-8
+    %section.content-wrapper
+      .widget-box.sidebar
+        -#%h3.wdgt-title PRODUCT LIST
+        %ul.wdgt-product
+          - @watchlist.furnitures.each do |furniture|
+            = render 'furnitures/furniture_brief', furniture: furniture
+            = button_to 'unwatch', "/watchlists/#{furniture.id}", method: :post
+      = link_to 'Edit', '/my_watch_list/edit'
+      \|
+      = link_to 'Back', furnitures_path
