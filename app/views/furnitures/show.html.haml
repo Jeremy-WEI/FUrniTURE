@@ -41,7 +41,7 @@
               %li.active
                 %a{"data-toggle" => "tab", :href => "#desc"} Description
               %li
-                %a{"data-toggle" => "tab", :href => "#addr", :id => "address"} Address
+                %a{"data-toggle" => "tab", :href => "#addr"} Address
               %li
                 %a{"data-toggle" => "tab", :href => "#addinfo"} Additional Information
               %li
@@ -74,12 +74,12 @@
                 %b
                   Address
                 - if @furniture.user != nil
-                  = @furniture.user.address
+                  = @furniture.address
                 %br
                 %b
                   %p{:style => 'color:red'}
                     = content_tag :div, class: "furniture_class", data: {furniture: @furniture} do end
-                #map-location
+                -##map-location
               #addinfo.tab-pane.fade
                 %p
                   %strong{:style => 'color:red'} Additional Information
