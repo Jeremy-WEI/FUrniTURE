@@ -1,3 +1,4 @@
+%hr
 = form_for @furniture do |f|
   - if @furniture.errors.any?
     #error_explanation
@@ -5,43 +6,68 @@
       %ul
         - @furniture.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :tag
-    = f.select :tag, ['chair', 'desk', 'bed', 'shelter']
-
-  .field
-    = f.label :picture1
-    = f.file_field :picture1
-  .field
-    = f.label :picture2
-    = f.file_field :picture2
-  .field
-    = f.label :picture3
-    = f.file_field :picture3
-  .field
-    = f.label :picture4
-    = f.file_field :picture4
-  .field
-    = f.label :price
-    = f.text_field :price
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :email
-    = f.text_field :email
-  .field
-    = f.label :phone
-    = f.text_field :phone
-  .field
-    = f.label :latitude
-    = f.text_field :latitude
-  .field
-    = f.label :longitude
-    = f.text_field :longitude
+  .row
+    .col-md-8
+      .field
+        = f.label :title
+        .row
+          .col-md-8
+            = f.text_field :title, {class: "form-control", placeholder: "A title for your furniture"}
+  %br
+  .row
+    .col-md-8
+      .field
+        = f.label :tag, {placeholder: "Select the category of your furniture"}
+        = f.select :tag, ['chair', 'desk', 'bed', 'sofa'], {class: "form-control", placeholder: "A title for your furniture"}
+  %p
+    %strong
+      Upload some pictures for your furniture
+  .row
+    .field
+      .col-md-2
+        = f.label :picture1
+        = f.file_field :picture1
+      .col-md-2
+        = f.label :picture2
+        = f.file_field :picture2
+      .col-md-2
+        = f.label :picture3
+        = f.file_field :picture3
+      .col-md-2
+        = f.label :picture4
+        = f.file_field :picture4
+  %br
+  .row
+    .col-md-8
+      .field
+        = f.label :price
+        .row
+          .col-md-8
+            = f.text_field :price, {class: "form-control", placeholder: "Propose a price for your furniture"}
+  %br
+  .row
+    .col-md-8
+      .field
+        = f.label :description
+        .row
+          .col-md-8
+            = f.text_area :description, {class: "form-control", placeholder: "More detailed descrptions about your furniture."}
+  %br
+  .row
+    .col-md-8
+      .field
+        = f.label :email
+        .row
+          .col-md-8
+            = f.text_field :email, {class: "form-control", placeholder: "Your email address shown to buyers (optional)"}
+  %br
+  .row
+    .col-md-8
+      .field
+        = f.label :phone
+        .row
+          .col-md-8
+            = f.text_field :phone, {class: "form-control", placeholder: "Your phone number shown to buyers (optional)"}
+  %br
   .actions
     = f.submit 'Save'

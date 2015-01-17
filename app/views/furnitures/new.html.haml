@@ -1,5 +1,15 @@
-%h1 New furniture
-
-= render 'form'
-
+/ CONTACT CONTENT
+%hr
+.outter
+  %section.content-wrapper
+    .container
+      %section.content-wrapper
+        .container
+          .row
+            .col-md-12
+              .content-box
+                %h3 Add a new furniture
+                = render 'form'
+= link_to 'Show', @furniture
+\|
 = link_to 'Back', furnitures_path

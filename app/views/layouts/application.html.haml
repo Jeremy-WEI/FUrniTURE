@@ -30,13 +30,31 @@
                   %input.input-search{:name => "search", :placeholder => "search", :type => "text", :value => ""}
                     %button.submit-search{:name => "submit", :type => "submit"}
                       %i.icon-search
-                %a.info.login{:href => "login.html"}
-                  %span.icon>
-                    %i.icon-lock
-                  Login
-                %a.info.cart{:href => "cart.html"}
-                  %span.icon>
-                    %i.icon-basket
-                  Cart
-                  %span 0
+                - if user_signed_in?
+                  %a.info.login{:href => "login.html"}
+                    %span.icon>
+                      %i.icon-lock
+                    = link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link'
+                  %a.info.login{:href => "login.html"}
+                    %span.icon>
+                      %i.icon-lock
+                    = link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'
+                  %a.info.cart{:href => "cart.html"}
+                    %span.icon>
+                      %i.icon-basket
+                    Watch list
+                - else
+                  %a.info.login{:href => "login.html"}
+                    %span.icon>
+                      %i.icon-lock
+                    = link_to "Login", new_user_session_path, :class => 'navbar-link'
+                  %a.info.login{:href => "login.html"}
+                    %span.icon>
+                      %i.icon-lock
+                    = link_to "Sign up", new_user_registration_path, :class => 'navbar-link'
+      - if notice
+        %p.alert.alert-success= notice
+      - if alert
+        %p.alert.alert-danger= alert
+      %hr
       = yield
