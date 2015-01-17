@@ -1,0 +1,161 @@
+.outter
+  %section.top-block
+    .container
+      .row
+        .col-md-12
+          .sel-top
+  %section.header
+    .container
+      .row
+        .col-sm-6
+          .sitelogo-block
+            .logo
+              %a{:href => "javascript:;"}
+                %img{:alt => "", :src => "images/logo.png"}
+            / /.logo
+            .titledesc
+              %h1 TUMBAS
+              %span Best decoration store
+        .col-sm-6
+          .topinfo-block
+            %form{:method => "POST"}
+              %input.input-search{:name => "search", :placeholder => "search", :type => "text", :value => ""}
+                %button.submit-search{:name => "submit", :type => "submit"}
+                  %i.icon-search
+            %a.info.login{:href => "login.html"}
+              %span.icon>
+                %i.icon-lock
+              Login
+            %a.info.cart{:href => "cart.html"}
+              %span.icon>
+                %i.icon-basket
+              Cart
+              %span 0
+  / /.container
+  / END HEADER
+  / BEGIN NAVIGATION
+  %section.navigation
+    .container
+      .row
+        .col-md-12
+          %nav.navbar.navbar-default{:role => "navigation"}
+            .container-fluid
+              / Brand and toggle get grouped for better mobile display
+              .navbar-header
+                %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+                  %span.sr-only Toggle navigation
+                  %span.icon-bar
+                  %span.icon-bar
+                  %span.icon-bar
+              / Collect the nav links, forms, and other content for toggling
+              #bs-example-navbar-collapse-1.collapse.navbar-collapse
+                %ul.nav.navbar-nav
+                  %li.dropdown
+                    %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                      HOME
+                      %b.caret
+                    %ul.dropdown-menu
+                      %li
+                        %a{:href => "index.html"} Home Default
+                      %li
+                        %a{:href => "index-business.html"} Home Business Version
+                      %li
+                        %a{:href => "index-business-full-width-slider.html"} Home Business Alternative
+                  %li
+                    %a{:href => "about.html"} ABOUT
+                  %li.dropdown
+                    %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                      PAGES
+                      %b.caret
+                    %ul.dropdown-menu
+                      %li
+                        %a{:href => "404.html"} 404 Error page
+                      %li
+                        %a{:href => "about.html"} About
+                      %li
+                        %a{:href => "cart.html"} Cart
+                      %li
+                        %a{:href => "checkout.html"} Checkout
+                      %li
+                        %a{:href => "coming-soon.html"} Coming Soon
+                      %li
+                        %a{:href => "contact.html"} Contact
+                      %li
+                        %a{:href => "login.html"} Login
+                      %li
+                        %a{:href => "pricing-tables.html"} Pricing Tables
+                      %li
+                        %a{:href => "shop.html"} Shop
+                      %li
+                        %a{:href => "services.html"} Services
+                      %li
+                        %a{:href => "shortcodes.html"} Shortcode
+                  %li.dropdown
+                    %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                      SHOP
+                      %b.caret
+                    %ul.dropdown-menu
+                      %li
+                        %a{:href => "shop.html"} Product List
+                      %li
+                        %a{:href => "product-detail.html"} Product Detail
+                  %li.dropdown
+                    %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                      Blog
+                      %b.caret
+                    %ul.dropdown-menu
+                      %li
+                        %a{:href => "blog.html"} Blog Page
+                      %li
+                        %a{:href => "blog-post.html"} Blog Post Sidebar
+                      %li
+                        %a{:href => "full-width.html"} Blog Post Full Width
+                  %li
+                    %a{:href => "shortcodes.html"} SHORTCODE
+                  %li
+                    %a{:href => "contact.html"} CONTACT
+  / /.navbar-collapse
+  / /.container-fluid
+  / END NAVIGATION
+  / BEGIN  TOP SLIDER
+  .topslider
+    #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
+      %ol.carousel-indicators
+        %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
+        %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
+        %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
+      .carousel-inner
+        .item.active.animated.fadeInUp
+          %img{:alt => "Third slide", :src => "images/top-slider/slide_1.jpg"}
+            .caption
+              .slider-title.animated.fadeInDown.delay1 GET YOUR DECORATION
+              .hidden-xs.delay2.slider-desc.animated.fadeIn Phasellus quis lectus metus, at posuere neque. Sed pharetra nibh eget orci convallis at posuere leo convallis. Sed blandit augue vitae augue scelerisque bibendum.
+              .slider-button.animated.fadeInUp.delay3
+                %a{:href => "javascript:;"} PURCHASE
+        .item.animated.fadeInUp
+          %img{:alt => "Third slide", :src => "images/top-slider/slide_2.jpg"}
+            .caption
+              .slider-title.animated.fadeInDown.delay1 GET YOUR DECORATION
+              .hidden-xs.delay2.slider-desc.animated.fadeIn Phasellus quis lectus metus, at posuere neque. Sed pharetra nibh eget orci convallis at posuere leo convallis. Sed blandit augue vitae augue scelerisque bibendum.
+              .slider-button.animated.fadeInUp.delay3
+                %a{:href => "javascript:;"} PURCHASE
+        .item.animated.fadeInUp
+          %img{:alt => "Third slide", :src => "images/top-slider/slide_3.jpg"}
+            .caption
+              .slider-title.animated.fadeInDown.delay1 GET YOUR DECORATION
+              .hidden-xs.delay2.slider-desc.animated.fadeIn Phasellus quis lectus metus, at posuere neque. Sed pharetra nibh eget orci convallis at posuere leo convallis. Sed blandit augue vitae augue scelerisque bibendum.
+              .slider-button.animated.fadeInUp.delay3
+                %a{:href => "javascript:;"} PURCHASE
+      %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example-generic"}
+        %img{:alt => "", :src => "images/slide-left.png"}
+      %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-example-generic"}
+        %img{:alt => "", :src => "images/slide-right.png"}
+  %footer
+    .container
+      .row
+        .col-md-12
+          .shop-info
+            %p Tumbas Business Multipurpose Template
+            %p
+              Powered by
+              %a{:href => "javascript:;"} Bootstrap

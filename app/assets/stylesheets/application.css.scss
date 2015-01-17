@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+//colors
+$color_white: rgba(255, 255, 255, 0);
+
+a:hover {
+    background: $color_white;
+}

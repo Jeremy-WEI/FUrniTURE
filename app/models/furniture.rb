@@ -6,10 +6,5 @@ class Furniture < ActiveRecord::Base
   mount_uploader :picture3, PictureUploader
   mount_uploader :picture4, PictureUploader
 
-  # validates :picture1, :picture2, :picture3, :picture4,
-  #           presence: true,
-  #           file_size: {
-  #               maximum: 5.megabytes.to_i
-  #           }
-
+  belongs_to :user
 end
