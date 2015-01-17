@@ -12,6 +12,7 @@ class FurnituresController < ApplicationController
   # GET /furnitures/1
   # GET /furnitures/1.json
   def show
+    @related_furnitures = Furniture.where(tag: @furniture.tag).where.not(id: @furniture.id).order("RANDOM()").limit(4)
   end
 
   # GET /furnitures/new

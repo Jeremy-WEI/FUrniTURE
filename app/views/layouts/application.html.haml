@@ -56,5 +56,108 @@
         %p.alert.alert-success= notice
       - if alert
         %p.alert.alert-danger= alert
-      %hr
+      %section.navigation
+        .container
+          .row
+            .col-md-12
+              %nav.navbar.navbar-default{:role => "navigation"}
+                .container-fluid
+                  .navbar-header
+                    %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+                      %span.sr-only Toggle navigation
+                      %span.icon-bar
+                      %span.icon-bar
+                      %span.icon-bar
+                  #bs-example-navbar-collapse-1.collapse.navbar-collapse
+                    %ul.nav.navbar-nav
+                      %li.dropdown
+                        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                          HOME
+                          %b.caret
+                        %ul.dropdown-menu
+                          %li
+                            %a{:href => "index.html"} Home Default
+                          %li
+                            %a{:href => "index-business.html"} Home Business Version
+                          %li
+                            %a{:href => "index-business-full-width-slider.html"} Home Business Alternative
+                      %li
+                        %a{:href => "about.html"} ABOUT
+                      %li.dropdown
+                        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                          PAGES
+                          %b.caret
+                        %ul.dropdown-menu
+                          %li
+                            %a{:href => "404.html"} 404 Error page
+                          %li
+                            %a{:href => "about.html"} About
+                          %li
+                            %a{:href => "cart.html"} Cart
+                          %li
+                            %a{:href => "checkout.html"} Checkout
+                          %li
+                            %a{:href => "coming-soon.html"} Coming Soon
+                          %li
+                            %a{:href => "contact.html"} Contact
+                          %li
+                            %a{:href => "login.html"} Login
+                          %li
+                            %a{:href => "pricing-tables.html"} Pricing Tables
+                          %li
+                            %a{:href => "shop.html"} Shop
+                          %li
+                            %a{:href => "services.html"} Services
+                          %li
+                            %a{:href => "shortcodes.html"} Shortcode
+                      %li.dropdown
+                        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                          SHOP
+                          %b.caret
+                        %ul.dropdown-menu
+                          %li
+                            %a{:href => "shop.html"} Product List
+                          %li
+                            %a{:href => "product-detail.html"} Product Detail
+                      %li.dropdown
+                        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                          Blog
+                          %b.caret
+                        %ul.dropdown-menu
+                          %li
+                            %a{:href => "blog.html"} Blog Page
+                          %li
+                            %a{:href => "blog-post.html"} Blog Post Sidebar
+                          %li
+                            %a{:href => "full-width.html"} Blog Post Full Width
+                      %li
+                        %a{:href => "shortcodes.html"} SHORTCODE
+                      %li
+                        %a{:href => "contact.html"} CONTACT
       = yield
+      %br
+      .brand
+        .container
+          .row
+            .col-md-12
+              .box-title
+                %h2 OUR BRAND
+          .row
+            .col-md-12
+              %ul.brands
+                %li
+                  = image_tag 'clien-1.png'
+                %li
+                  = image_tag 'clien-2.png'
+                %li
+                  = image_tag 'clien-3.png'
+                %li
+                  = image_tag 'clien-4.png'
+      .container
+        .row
+          .col-md-12
+            .shop-info
+              %p Tumbas Business Multipurpose Template
+              %p
+                Powered by
+                %a{:href => "javascript:;"} Bootstrap
