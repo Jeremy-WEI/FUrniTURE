@@ -5,8 +5,26 @@ class FurnituresController < ApplicationController
   # GET /furnitures.json
   def index
     @furnitures = Furniture.all
-    @currentLocation = [35, 140]
+    @currentLocation = [23, 170]
     @miles = 100
+  end
+
+  def search
+    tag = params[:tag]
+    address = params[:address]
+    price = params[:price]
+    @miles = params[:miles]
+    tmp = Geokit::Geocoders::GoogleGeocoder.geocode(address)
+    @currentLocation = [tmp.lat, tmp.lng]
+    furnitureAll = Furniture.all
+    @furnitures = []
+    furnitureAll.each do |f|
+      location = Geokit::LatLng.new(f.latitude, f.longitude)
+      if f.tag == tag and f.price.to_i <= price.to_i and location.distance_to(@currentLocation) <= @miles.to_i
+        @furnitures.append(f)
+      end
+    end
+    render 'furnitures/index'
   end
 
   # GET /furnitures/1
@@ -32,7 +50,7 @@ class FurnituresController < ApplicationController
     @furniture.address = current_user.address
     @furniture.phone = current_user.phone
     @furniture.email = current_user.email
-    @location = Geokit::Geocoders::GoogleGeocoder.geocode "3131 Walnut Street, Philadelphia"
+    @location = Geokit::Geocoders::GoogleGeocoder.geocode @furniture.address
     if @location.success
       @furniture.latitude = @location.lat
       @furniture.longitude = @location.lng

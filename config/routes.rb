@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {:registrations => "users/registrations"}
   # devise_for :users
   resources :furnitures
-
-  post 'users/:id' => 'catalog#view'
+  get '/search', to: 'furnitures#search'
+  resources :users
 
   resources :watchlists do
     resources :furnitures
