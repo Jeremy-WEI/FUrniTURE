@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @furnitures = Furniture.where("user_id = ?", params[:id])
+    render "test"
   end
 
   # GET /users/new
