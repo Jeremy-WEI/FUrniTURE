@@ -22,8 +22,9 @@
                   %a{:href => "/"}
                     = image_tag 'logo.png'
                 .titledesc
-                  %h1 FU<small>rni</small>TURE
-                  %span Best Used Furniture Trading Platform
+                  %a{:href => "/"}
+                    %h1 FU<small>rni</small>TURE
+                    %span Best Used Furniture Trading Platform
             .col-sm-6
               .topinfo-block
                 - if user_signed_in?
@@ -56,6 +57,7 @@
                     %span.icon>
                       %i.icon-lock
                     = link_to "Sign up", new_user_registration_path, :class => 'navbar-link'
+      %hr
       - if notice
         %p.alert.alert-success= notice
       - if alert

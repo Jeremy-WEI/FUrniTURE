@@ -1,5 +1,5 @@
 class FurnituresController < ApplicationController
-  before_action :set_furniture, only: [:show, :edit, :update, :destroy]
+  before_action :set_furniture, only: [:show, :edit, :update, :destroy, :add_to_watch_list]
 
   # GET /furnitures
   # GET /furnitures.json
@@ -42,8 +42,14 @@ class FurnituresController < ApplicationController
   def edit
   end
 
-  def addfurniture
-    current_user.watchlist
+  def add_to_watch_list
+    @watchlist = current_user.watchlist
+    unless @watchlist.furniture_ids.include?(@furniture.id)
+      @watchlist.furnitures << @furniture
+    end
+    @related_furnitures = Furniture.where(tag: @furniture.tag).where.not(id: @furniture.id).order("RANDOM()").limit(4)
+    flash[:notice] = "You watched this furniture"
+    render :show
   end
 
   # POST /furnitures
