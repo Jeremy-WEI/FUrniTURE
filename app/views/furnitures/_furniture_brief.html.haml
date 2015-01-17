@@ -1,0 +1,26 @@
+%li
+  %a{:href => "#{furniture_path(furniture)}"}
+    - if furniture.picture1 != nil && furniture.picture1.to_s != ""
+      = image_tag furniture.picture1, size: "45x45"
+    - else
+      = image_tag "aeroplane.png", size: "45x45"
+    = furniture.title
+  %p
+    - s = furniture.description.to_s.strip
+    - if s.length > 50
+      - s = s.slice(0, 50) + "..."
+    = s
+  %p
+    %span.label.label-danger
+      - doller = furniture.price.to_s.strip
+      - if doller != ""
+        = "$" + furniture.price.to_s
+      - else
+        N/A
+    %span.label.label-info
+      = furniture.tag
+    %span.label.label-primary
+      - if furniture.user.to_s != ""
+        = "Sold by: " + furniture.user.name.to_s
+    %span.label.label-success
+      = furniture.created_at.to_time.to_formatted_s(:db).to_s.slice(0, 10)

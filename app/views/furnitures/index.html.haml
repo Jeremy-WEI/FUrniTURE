@@ -36,32 +36,7 @@
           %h3.wdgt-title PRODUCT LIST
           %ul.wdgt-product
             -@furnitures.each do |furniture|
-              %li
-                %a{:href => "#{furniture_path(furniture)}"}
-                  - if furniture.picture1 != nil && furniture.picture1.to_s != ""
-                    = image_tag furniture.picture1, size: "45x45"
-                  - else
-                    = image_tag "aeroplane.png", size: "45x45"
-                  = furniture.title
-                %p
-                  - s = furniture.description.to_s.strip
-                  - if s.length > 50
-                    - s = s.slice(0, 50) + "..."
-                  = s
-                %p
-                  %span.label.label-danger
-                    - doller = furniture.price.to_s.strip
-                    - if doller != ""
-                      = "$" + furniture.price.to_s
-                    - else
-                      N/A
-                  %span.label.label-info
-                    = furniture.tag
-                  %span.label.label-primary
-                    - if furniture.user.to_s != ""
-                      = "Sold by: " + furniture.user.name.to_s
-                  %span.label.label-success
-                    = furniture.created_at.to_time.to_formatted_s(:db).to_s.slice(0, 10)
+              = render 'furniture_brief', furniture: furniture
 
 -#= form_for @search do |f|
 -#  .field
@@ -158,10 +133,17 @@
             google.maps.event.addListener(marker, 'click', (function(marker, i) {
                 return function(){
                     var distance = 3;
-                    var description = "<h3><strong>$"+furnitures[i].price+",&nbsp;</strong><strong>"+
-                                       furnitures[i].title+",&nbsp;</strong><strong>"+distance+" miles from you</strong></h3><br>"+
-                                       "<p>&nbsp; &nbsp; &nbsp;sell by Katie, post on "+furnitures[i].created_at+"</p><br>"+
-                                       "<p>description: "+furnitures[i].description+"</p>";
+                    var pic;
+                    if(furnitures[i].picture1 == null) {
+                    	pic = "/assets/aeroplane.png";
+                    } else {
+                    	pic = furnitures[i].picture1;
+                    }
+                    var description = "<a href='" + "/furnitures/" + furnitures[i].id + "'><h3><strong>"+
+                                       furnitures[i].title+"</strong></h3></a>"+
+                                       "<div class='col-md-8'><p>Price: \$"+furnitures[i].price + "</p><p>post on "+furnitures[i].created_at.substr(0, 10)+"</p>"+
+                                       "<p>description: "+furnitures[i].description+"</p></div><div class='col-md-4'>" +
+                                       "<img alt='Picture1' height='45' src='" + pic + "' width='45' />" + "</div>";
                     new google.maps.InfoWindow({
                         content: description
                     }).open(map, marker);
