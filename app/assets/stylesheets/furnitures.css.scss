@@ -3,7 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #map-canvas {
-  height: 100%;
-  margin: 100px;
-  padding: 200px
+  height: 500px;
+//  margin: 100px;
+  padding: 10px
+}
+
+.scroll-view {
+  height:500px;
+  overflow: auto;
+  overflow-y: auto;
 }

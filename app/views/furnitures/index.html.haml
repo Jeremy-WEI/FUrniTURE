@@ -1,27 +1,107 @@
-%h1 Searching
+%hr
+.row
+  .col-md-12
+    .col-md-9
+      #map-canvas
+    .col-md-3.scroll-view
+      %section.content-wrapper
+        .widget-box.sidebar
+          %h3.wdgt-title TOP PRODUCTS
 
+          %ul.wdgt-product
+            %li
+              %a{:href => "javascript:;"}
+                %img{:alt => "", :src => "images/product-45x45.jpg"}
+                  Aesop Quill Anti-Oxidant Grooming Kit
+              %span.price
+                $300
+            %li
+              %a{:href => "javascript:;"}
+                %img{:alt => "", :src => "images/product-45x45.jpg"}
+                  Aesop Quill Anti-Oxidant Grooming Kit
+              %span.price
+                $300
+            %li
+              %a{:href => "javascript:;"}
+                %img{:alt => "", :src => "images/product-45x45.jpg"}
+                  Aesop Quill Anti-Oxidant Grooming Kit
+              %span.price
+                $300
+            %li
+              %a{:href => "javascript:;"}
+                %img{:alt => "", :src => "images/product-45x45.jpg"}
+                  Aesop Quill Anti-Oxidant Grooming Kit
+              %span.price
+                $300
+            %li
+              %a{:href => "javascript:;"}
+                %img{:alt => "", :src => "images/product-45x45.jpg"}
+                  Aesop Quill Anti-Oxidant Grooming Kit
+              %span.price
+                $300
+            %li
+              %a{:href => "javascript:;"}
+                %img{:alt => "", :src => "images/product-45x45.jpg"}
+                  Aesop Quill Anti-Oxidant Grooming Kit
+              %span.price
+                $300
+            %li
+              %a{:href => "javascript:;"}
+                %img{:alt => "", :src => "images/product-45x45.jpg"}
+                  Aesop Quill Anti-Oxidant Grooming Kit
+              %span.price
+                $300
+            %li
+              %a{:href => "javascript:;"}
+                %img{:alt => "", :src => "images/product-45x45.jpg"}
+                  Aesop Quill Anti-Oxidant Grooming Kit
+              %span.price
+                $300
+            %li
+              %a{:href => "javascript:;"}
+                %img{:alt => "", :src => "images/product-45x45.jpg"}
+                  Aesop Quill Anti-Oxidant Grooming Kit
+              %span.price
+                $300
 
+-#= form_for @search do |f|
+-#  .field
+-#    = f.label :address
+-#    = f.text_field :current_address
+-#  .field
+-#    = f.label :type
+-#    = select(:type, :status, options_for_select([["canceled", "1"], ["pending", "2"], ["success", "3"]]))
+-#    = f.text_field :type
+-#  .field
+-#    = f.label :price
+-#    = f.text_field :price
+-#  .field
+-#    = f.label :distance
+-#    = f.text_field :distance
+-#  .actions
+-#    = f.submit 'Search'
 
-%h1 Listing furnitures
-
-%table
-  %thead
-    %tr
-      %th Title
-      %th Tag
-      %th Picture1
-      %th Picture2
-      %th Picture3
-      %th Picture4
-      %th Price
-      %th Description
-      %th Email
-      %th Phone
-      %th Latitude
-      %th Longitude
-      %th
-      %th
-      %th
+-#
+-#%h1 Listing furnitures
+-#
+-#%table
+-#  %thead
+-#    %tr
+-#      %th Title
+-#      %th Tag
+-#      %th Picture1
+-#      %th Picture2
+-#      %th Picture3
+-#      %th Picture4
+-#      %th Price
+-#      %th Description
+-#      %th Email
+-#      %th Phone
+-#      %th Latitude
+-#      %th Longitude
+-#      %th
+-#      %th
+-#      %th
 
   %tbody
     - @furnitures.each do |furniture|
@@ -49,7 +129,7 @@
 = content_tag :div, class: "furnitures_class", data: {furnitures: @furnitures, current: @currentLocation, miles: @miles} do end
 
 
-#map-canvas
+
 
 = link_to 'New Furniture', new_furniture_path
 
