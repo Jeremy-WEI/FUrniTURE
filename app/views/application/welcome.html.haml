@@ -88,8 +88,8 @@
           .slider-title.animated.fadeInDown.delay1 NO IDEA WITH YOUR USED FURNITURE?
           .hidden-xs.delay2.slider-desc.animated.fadeIn FUrniTURE is the best place for you to sell your furniture.
           .slider-button.animated.fadeInUp.delay3
-            %a{:href => "javascript:;"} NEW POST
-            %a{:href => "javascript:;"} SEARCH NEARBY FURNITURE
+            = link_to 'SELL YOUR FURNITURE', new_furniture_path
+            = link_to 'SEARCH NEARBY FURNITURE', furnitures_path
       .item.animated.fadeInUp
         = image_tag 'top-slider/slide_2.jpg'
         .caption
