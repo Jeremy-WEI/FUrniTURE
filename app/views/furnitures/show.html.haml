@@ -1,0 +1,42 @@
+-#%p#notice= notice
+
+%p
+  %b Title:
+  = @furniture.title
+%p
+  %b Tag:
+  = @furniture.tag
+%p
+  %b Picture1:
+  = @furniture.picture1
+%p
+  %b Picture2:
+  = @furniture.picture2
+%p
+  %b Picture3:
+  = @furniture.picture3
+%p
+  %b Picture4:
+  = @furniture.picture4
+%p
+  %b Price:
+  = @furniture.price
+%p
+  %b Description:
+  = @furniture.description
+%p
+  %b Email:
+  = @furniture.email
+%p
+  %b Phone:
+  = @furniture.phone
+%p
+  %b Latitude:
+  = @furniture.latitude
+%p
+  %b Longitude:
+  = @furniture.longitude
+
+= link_to 'Edit', edit_furniture_path(@furniture)
+\|
+= link_to 'Back', furnitures_path

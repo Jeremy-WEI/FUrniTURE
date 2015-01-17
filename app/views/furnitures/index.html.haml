@@ -1,0 +1,43 @@
+%h1 Listing furnitures
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Tag
+      %th Picture1
+      %th Picture2
+      %th Picture3
+      %th Picture4
+      %th Price
+      %th Description
+      %th Email
+      %th Phone
+      %th Latitude
+      %th Longitude
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @furnitures.each do |furniture|
+      %tr
+        %td= furniture.title
+        %td= furniture.tag
+        %td= furniture.picture1
+        %td= furniture.picture2
+        %td= furniture.picture3
+        %td= furniture.picture4
+        %td= furniture.price
+        %td= furniture.description
+        %td= furniture.email
+        %td= furniture.phone
+        %td= furniture.latitude
+        %td= furniture.longitude
+        %td= link_to 'Show', furniture
+        %td= link_to 'Edit', edit_furniture_path(furniture)
+        %td= link_to 'Destroy', furniture, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Furniture', new_furniture_path
