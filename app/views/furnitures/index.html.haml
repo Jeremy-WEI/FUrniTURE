@@ -1,68 +1,70 @@
 %hr
 .row
   .col-md-12
-    .col-md-9
+    .col-md-8
+      .row
+        .col-md-12
+          .product-order
+            .col-md-2
+              .row
+                .col-md-12
+                  .select-wrapper
+                    %select.country_id{:name => "country_id"}
+                      %option{:value => ""} Sort by newness
+                      %option{:value => "4"} Sort by sales
+                      %option{:value => "10"} Sort by rate
+                      %option{:value => "10"} Sort by review
+            .col-md-2
+              .row
+                .col-md-12
+                  .select-wrapper
+                    %select.country_id{:name => "country_id"}
+                      %option{:value => ""} Search by type
+                      %option{:value => "4"} Chair
+                      %option{:value => "10"} Long Chair
+                      %option{:value => "10"} Medium Chair
+                      %option{:value => "10"} Short Chair
+            .col-md-2
+              .row
+                .col-md-12
+                  .select-wrapper
+                    %select.country_id{:name => "country_id"}
+                      %option{:value => ""} Search by distance
+                      %option{:value => "4"} Chair
+                      %option{:value => "10"} Long Chair
+                      %option{:value => "10"} Medium Chair
+                      %option{:value => "10"} Short Chair
+            .col-md-4
+              .select-wrapper
+                %form
+                  %input.input-black{:type => "text", :name => "address"}
+                  %input.btn-sm{:type => "submit", :value => "Search"}
       #map-canvas
-    .col-md-3.scroll-view
+    .col-md-4.scroll-view
       %section.content-wrapper
         .widget-box.sidebar
-          %h3.wdgt-title TOP PRODUCTS
-
+          %h3.wdgt-title PRODUCT LIST
           %ul.wdgt-product
+            -@furnitures.each do |furniture|
+              %li
+                %a{:href => "#{furniture.user}"}
+                  %img{:src => "images/product-45x45.jpg"}
+                    Aesop Quill Anti-Oxidant Grooming Kit
+                %span.price
+                  $300
             %li
-              %a{:href => "javascript:;"}
-                %img{:alt => "", :src => "images/product-45x45.jpg"}
-                  Aesop Quill Anti-Oxidant Grooming Kit
-              %span.price
+              %a{:href => "#{new_furniture_path}"}
+                = image_tag "aeroplane.png", size: "45x45"
+                Aesop Quill Anti-Oxidant Grooming Kit
+              %p description asdjlsadjalsdjasldljadlsajdlasjdlajls
+              %span.label.label-danger
                 $300
-            %li
-              %a{:href => "javascript:;"}
-                %img{:alt => "", :src => "images/product-45x45.jpg"}
-                  Aesop Quill Anti-Oxidant Grooming Kit
-              %span.price
-                $300
-            %li
-              %a{:href => "javascript:;"}
-                %img{:alt => "", :src => "images/product-45x45.jpg"}
-                  Aesop Quill Anti-Oxidant Grooming Kit
-              %span.price
-                $300
-            %li
-              %a{:href => "javascript:;"}
-                %img{:alt => "", :src => "images/product-45x45.jpg"}
-                  Aesop Quill Anti-Oxidant Grooming Kit
-              %span.price
-                $300
-            %li
-              %a{:href => "javascript:;"}
-                %img{:alt => "", :src => "images/product-45x45.jpg"}
-                  Aesop Quill Anti-Oxidant Grooming Kit
-              %span.price
-                $300
-            %li
-              %a{:href => "javascript:;"}
-                %img{:alt => "", :src => "images/product-45x45.jpg"}
-                  Aesop Quill Anti-Oxidant Grooming Kit
-              %span.price
-                $300
-            %li
-              %a{:href => "javascript:;"}
-                %img{:alt => "", :src => "images/product-45x45.jpg"}
-                  Aesop Quill Anti-Oxidant Grooming Kit
-              %span.price
-                $300
-            %li
-              %a{:href => "javascript:;"}
-                %img{:alt => "", :src => "images/product-45x45.jpg"}
-                  Aesop Quill Anti-Oxidant Grooming Kit
-              %span.price
-                $300
-            %li
-              %a{:href => "javascript:;"}
-                %img{:alt => "", :src => "images/product-45x45.jpg"}
-                  Aesop Quill Anti-Oxidant Grooming Kit
-              %span.price
-                $300
+              %span.label.label-info
+                chair
+              %span.label.label-primary
+                distance
+              %span.label.label-success
+                2012/01/12
 
 -#= form_for @search do |f|
 -#  .field
