@@ -35,7 +35,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   #
   # end
 
-  process :resize_to_fit => [400, 400]
+  # process :resize_to_fit => [400, 400]
 
   # process :resize_to_fill => [400, 400, 'Center']
 
