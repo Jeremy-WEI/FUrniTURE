@@ -1,5 +1,156 @@
 -#%p#notice= notice
 / DETAIL PRODUCT CONTENT
+%section.content-wrapper
+  .container
+    .row
+      .col-md-4
+        .content-box
+          / Begin Img Thumbnail
+          .sp-wrap
+            - if @furniture.picture1 != nil && @furniture.picture1 != ""
+              %a{:href => @furniture.picture1}
+                %img{:alt => "There is no image attached.", :src => @furniture.picture1}
+            - else
+              %a{:href => image_url("product-1.jpg")}
+                %img{:alt => "There is no image attached.", :src => image_url("product-1-h.jpg")}
+            - if @furniture.picture2 != nil && @furniture.picture2 != ""
+              %a{:href => @furniture.picture2}
+                %img{:alt => "There is no image attached.", :src => @furniture.picture2}
+            - if @furniture.picture3 != nil && @furniture.picture3 != ""
+              %a{:href => @furniture.picture3}
+                %img{:alt => "There is no image attached.", :src => @furniture.picture3}
+            - if @furniture.picture4 != nil && @furniture.picture4 != ""
+              %a{:href => @furniture.picture4}
+                %img{:alt => "There is no image attached.", :src => @furniture.picture4}
+          / end Img Thumbnail
+          -#%ul.product-option
+          -#  %li
+          -#    %a{:href => "javascript:;"} Short chair
+          -#    %span.opt-available Available
+          -#  %li
+          -#    %a{:href => "javascript:;"} Medium chair
+          -#    %span.opt-not-available Not available
+          -#  %li
+          -#    %a{:href => "javascript:;"} Long chair
+          -#    %span.opt-available Available
+      .col-md-8
+        .content-box
+          .product-meta
+            %h1.product-title
+              = @furniture.title
+            %ul.product-breadcrumb
+              %li
+                %a{:href => "javscript:;"}
+                  = @furniture.user
+              %li.current
+                %a{:href => "javscript:;"}
+                  = @furniture.title
+          .product-desc
+            .product-price
+              .price-new
+                Price
+                %span
+                  = "$" + @furniture.price.to_s
+            %ul.nav.nav-tabs
+              %li.active
+                %a{"data-toggle" => "tab", :href => "#desc"} Description
+              %li
+                %a{"data-toggle" => "tab", :href => "#addr"} Address
+              %li
+                %a{"data-toggle" => "tab", :href => "#addinfo"} Additional Information
+              %li
+                %a{"data-toggle" => "tab", :href => "#reviews"} Reviews (1)
+            / Tab panes
+            .tab-content
+              #desc.tab-pane.fade.in.active
+                .row
+                  .col-md-2
+                    .product-tag
+                      .product-tag-content
+                        %span
+                          = @furniture.tag.to_s
+                %p.text-left
+                  %strong
+                    Description:
+                %p.text-left
+                  = @furniture.description
+                %p.text-left
+                  %strong
+                    Contact's Email:
+                %p.text-left
+                  = @furniture.email
+                %p.text-left
+                  %strong
+                    Phone Number:
+                %p.text-left
+                  = @furniture.phone
+              #addr.tab-pane.fade
+                %b
+                  Address
+                - if @furniture.user != nil
+                  = @furniture.user.address
+                %br
+                %b
+                  %p{:style => 'color:red'}
+                    = content_tag :div, class: "furniture_class", data: {furniture: @furniture} do end
+                  #map-location
+              #addinfo.tab-pane.fade
+                %p
+                  %strong{:style => 'color:red'} Additional Information
+                %hr/
+                %table.product-shop-info
+                  %tbody
+                    %tr
+                      %th Size
+                      %td
+                        %p Long, Medium, Short
+                    %tr
+                      %th Colour
+                      %td
+                        %p Pearl
+                    %tr
+                      %th Size &amp; Fit
+                      %td
+                        %p This style comes in a regular fit which fits true to size.
+                    %tr
+                      %th Other Info
+                      %td
+                        %p Odio convallis suscipit venenatis, ante ipsum
+              #reviews.tab-pane.fade
+                %p
+                  %strong{:style => 'color:red'} Customer Reviews
+                %hr/
+                .media
+                  %a.pull-left{:href => "javascript:;"}
+                    %img.media-object{:alt => "64x64", "data-src" => "holder.js/64x64", :src => image_url("avatar-1.jpg"), :style => "width: 64px; height: 64px;"}
+                      .product-rating
+                        %i.fa.fa-star
+                        %i.fa.fa-star
+                        %i.fa.fa-star
+                        %i.fa.fa-star
+                        %i.fa.fa-star-half-o
+                  .media-body
+                    %h5.media-heading John Donec
+                    %p Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                %hr/
+                %h4 Add your review
+                %p
+                %form{:role => "form"}
+                  .form-group
+                    %input#exampleInputEmail1.form-control{:placeholder => "Name", :type => "text"}
+                  .form-group
+                    %input#exampleInputPassword1.form-control{:placeholder => "Email", :type => "text"}
+                  .form-group
+                    %select.form-control
+                      %option 1 star
+                      %option 2 stars
+                      %option 3 stars
+                      %option 4 stars
+                      %option 5 stars
+                  .form-group
+                    %textarea.form-control{:rows => "5"}
+                  %button.btn-black{:type => "submit"} Submit Review
+        = button_to 'Back to Map', furnitures_path
 .outter
   %section.content-wrapper
     .container
@@ -83,7 +234,8 @@
                   %br
                   %b
                     %p{:style => 'color:red'}
-                      ADD A MAP HERE?
+                      = content_tag :div, class: "furniture_class", data: {furniture: @furniture} do end
+                      #map-location
                 #addinfo.tab-pane.fade
                   %p
                     %strong{:style => 'color:red'} Additional Information
@@ -142,3 +294,20 @@
                     %button.btn-black{:type => "submit"} Submit Review
           = button_to 'Back to Map', furnitures_path
 
+
+:javascript
+  $(document).ready(function() {
+    var location = $('.furniture_class').data('furniture');
+    var mapOptions = {
+      zoom: 10,
+      center: new google.maps.LatLng(location.latitude, location.longitude)
+    };
+    var map = new google.maps.Map(document.getElementById('map-location'), mapOptions);
+    function initialize() {
+        var here = new google.maps.Marker({
+            position: new google.maps.LatLng(location.latitude, location.longitude),
+            map: map,
+        })
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+  });
