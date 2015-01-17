@@ -1,5 +1,29 @@
-%h1 New furniture
-
-= render 'form'
-
-= link_to 'Back', furnitures_path
+/ CONTACT CONTENT
+.outter
+  %section.content-wrapper
+    .container
+      %section.content-wrapper
+        .container
+          .row
+            .col-md-12
+              .content-box
+                = render 'form'
+                %h3 New furniture
+                %p
+                  %strong Housing Store
+                  = succeed "901" do
+                    %br/
+                  Cherry Ave, San Bruno, CA 94066, United States
+                %form{:role => "form"}
+                  .form-group
+                    %input#exampleInputEmail1.form-control{:placeholder => "Email", :type => "text"}
+                  .form-group
+                    %input#exampleInputPassword1.form-control{:placeholder => "Website", :type => "text"}
+                  .form-group
+                    %textarea.form-control{:rows => "5"}
+                  .checkbox
+                    %label
+                      %input{:type => "checkbox"}
+                        Check me out
+                  = button_to 'Back', furnitures_path
+      / END CONTACT CONTENT

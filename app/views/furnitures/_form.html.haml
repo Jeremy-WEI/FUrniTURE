@@ -5,7 +5,17 @@
       %ul
         - @furniture.errors.full_messages.each do |msg|
           %li= msg
-
+  %form{:role => "form"}
+    .form-group
+      %input#furniture-title.form-control{:placeholder => "Email", :type => "text"}
+    .form-group
+      %input#exampleInputPassword1.form-control{:placeholder => "Website", :type => "text"}
+    .form-group
+      %textarea.form-control{:rows => "5"}
+    .checkbox
+      %label
+        %input{:type => "checkbox"}
+          Check me out
   .field
     = f.label :title
     = f.text_field :title
