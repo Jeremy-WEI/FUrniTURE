@@ -48,6 +48,14 @@
   .row
     .col-md-8
       .field
+        = f.label :oldness
+        .row
+          .col-md-8
+            = f.text_field :oldness, {class: "form-control", placeholder: "Enter the year of usage of your furniture"}
+  %br
+  .row
+    .col-md-8
+      .field
         = f.label :description
         .row
           .col-md-8
