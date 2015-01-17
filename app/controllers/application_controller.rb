@@ -1,5 +1,4 @@
 require 'openssl'
-require 'geokit'
 
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
