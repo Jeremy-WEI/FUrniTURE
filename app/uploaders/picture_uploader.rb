@@ -1,4 +1,5 @@
 # encoding: utf-8
+require 'carrierwave/processing/mini_magick'
 
 class PictureUploader < CarrierWave::Uploader::Base
 
@@ -30,13 +31,18 @@ class PictureUploader < CarrierWave::Uploader::Base
   #
   # def scale(width, height)
   #   # do something
+  #   process :scale => [200, 200]
+  #
   # end
 
-  # process :resize_to_fit => [100, 100]
+  process :resize_to_fit => [400, 400]
+
+  # process :resize_to_fill => [400, 400, 'Center']
+
 
   # Create different versions of your uploaded files:
   # version :thumb do
-  #   process :resize_to_fit => [50, 50]
+  #   process :resize_to_fill => [50, 50]
   # end
 
   # Add a white list of extensions which are allowed to be uploaded.
