@@ -22,8 +22,9 @@
                   %a{:href => "/"}
                     = image_tag 'logo.png'
                 .titledesc
-                  %h1 FU<small>rni</small>TURE
-                  %span Best Used Furniture Trading Platform
+                  %a{:href => "/"}
+                    %h1 FU<small>rni</small>TURE
+                    %span Best Used Furniture Trading Platform
             .col-sm-6
               .topinfo-block
                 - if user_signed_in?
@@ -31,10 +32,10 @@
                     %span.icon>
                       %i.icon-money
                     = link_to 'Sell Your Furniture', new_furniture_path
-                  -#%a.info{:href => ""}
-                  -#  %span.icon>
-                  -#    %i.icon-money
-                  -#  = link_to 'View your post',
+                  %a.info{:href => ""}
+                    %span.icon>
+                      %i.icon-money
+                    = link_to 'View your post', profile_path(current_user.profile)
                   %a.info.login{:href => ""}
                     %span.icon>
                       %i.icon-lock
