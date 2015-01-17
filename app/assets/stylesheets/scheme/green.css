@@ -80,6 +80,9 @@ small {
 .product-block .product-name {
   color: #121212;
 }
+.product-block .product-addr {
+    color: #121212;
+}
 .product-block .product-name:hover {
   color: #cccccc;
 }

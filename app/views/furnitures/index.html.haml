@@ -1,43 +1,106 @@
-%h1 Searching
+%hr
+.row
+  .col-md-12
+    .col-md-8
+      .row
+        .product-order
+          .col-md-2
+            .row
+              .col-md-12
+                -#.select-wrapper
+                %select.country_id{:name => "country_id"}
+                  %option{:value => ""} Sort by date
+                  %option{:value => "4"} Sort by price
+                  %option{:value => "10"} Sort by distance
+          .col-md-2
+            .row
+              .col-md-12
+                -#.select-wrapper
+                %select.country_id{:name => ""}
+                  %option{:value => "aa"} Filter by type
+                  %option{:value => "chair"} Chair
+                  %option{:value => "table"} Table
+                  %option{:value => "bed"} Bed
+                  %option{:value => "sofa"} Sofa
+                  %option{:value => "other"} Others
+          .col-md-4
+          .col-md-4
+            .select-wrapper
+              %form
+                %input.input-black{:type => "text", :name => "address"}
+                %input.btn-sm{:type => "submit", :value => "Search"}
+      #map-canvas
+    .col-md-4.scroll-view
+      %section.content-wrapper
+        .widget-box.sidebar
+          %h3.wdgt-title PRODUCT LIST
+          %ul.wdgt-product
+            -@furnitures.each do |furniture|
+              %li
+                %a{:href => "#{furniture_path(furniture)}"}
+                  - if furniture.picture1 != nil && furniture.picture1.to_s != ""
+                    = image_tag furniture.picture1, size: "45x45"
+                  - else
+                    = image_tag "aeroplane.png", size: "45x45"
+                  = furniture.title
+                %p
+                  - s = furniture.description.to_s.strip
+                  - if s.length > 50
+                    - s = s.slice(0, 50) + "..."
+                  = s
+                %p
+                  %span.label.label-danger
+                    - doller = furniture.price.to_s.strip
+                    - if doller != ""
+                      = "$" + furniture.price.to_s
+                    - else
+                      N/A
+                  %span.label.label-info
+                    = furniture.tag
+                  %span.label.label-primary
+                    - if furniture.user.to_s != ""
+                      = "Sold by: " + furniture.user.name.to_s
+                  %span.label.label-success
+                    = furniture.created_at.to_time.to_formatted_s(:db).to_s.slice(0, 10)
 
-= form_for @search do |f|
-  .field
-    = f.label :address
-    = f.text_field :current_address
-  .field
-    = f.label :type
-    = select(:type, :status, options_for_select([["canceled", "1"], ["pending", "2"], ["success", "3"]]))
-    = f.text_field :type
-  .field
-    = f.label :price
-    = f.text_field :price
-  .field
-    = f.label :distance
-    = f.text_field :distance
-  .actions
-    = f.submit 'Search'
+-#= form_for @search do |f|
+-#  .field
+-#    = f.label :address
+-#    = f.text_field :current_address
+-#  .field
+-#    = f.label :type
+-#    = select(:type, :status, options_for_select([["canceled", "1"], ["pending", "2"], ["success", "3"]]))
+-#    = f.text_field :type
+-#  .field
+-#    = f.label :price
+-#    = f.text_field :price
+-#  .field
+-#    = f.label :distance
+-#    = f.text_field :distance
+-#  .actions
+-#    = f.submit 'Search'
 
-
-%h1 Listing furnitures
-
-%table
-  %thead
-    %tr
-      %th Title
-      %th Tag
-      %th Picture1
-      %th Picture2
-      %th Picture3
-      %th Picture4
-      %th Price
-      %th Description
-      %th Email
-      %th Phone
-      %th Latitude
-      %th Longitude
-      %th
-      %th
-      %th
+-#
+-#%h1 Listing furnitures
+-#
+-#%table
+-#  %thead
+-#    %tr
+-#      %th Title
+-#      %th Tag
+-#      %th Picture1
+-#      %th Picture2
+-#      %th Picture3
+-#      %th Picture4
+-#      %th Price
+-#      %th Description
+-#      %th Email
+-#      %th Phone
+-#      %th Latitude
+-#      %th Longitude
+-#      %th
+-#      %th
+-#      %th
 
   %tbody
     - @furnitures.each do |furniture|
@@ -64,10 +127,6 @@
 -#= content_tag :div, class: "furnitures_class", data: {current: @currentLocation} do end
 = content_tag :div, class: "furnitures_class", data: {furnitures: @furnitures, current: @currentLocation, miles: @miles} do end
 
-
-#map-canvas
-
-= link_to 'New Furniture', new_furniture_path
 
 :javascript
   $(document).ready(function() {

@@ -1,7 +1,14 @@
-%h1 Editing furniture
-
-= render 'form'
-
+%hr
+.outter
+  %section.content-wrapper
+    .container
+      %section.content-wrapper
+        .container
+          .row
+            .col-md-12
+              .content-box
+                %h3 Editing furniture
+                = render 'form'
 = link_to 'Show', @furniture
 \|
 = link_to 'Back', furnitures_path
