@@ -5,6 +5,8 @@
     - else
       = image_tag "aeroplane.png", size: "45x45"
     = furniture.title
+  -#%a{:href => "#{furniture.user.homepage}", :float => "right"}
+  -#  furniture.user
   %p
     - s = furniture.description.to_s.strip
     - if s.length > 50
@@ -20,7 +22,7 @@
     %span.label.label-info
       = furniture.tag
     %span.label.label-primary
-      - if furniture.user.to_s != ""
-        = "Sold by: " + furniture.user.name.to_s
+      = 1233
+    -#  distance
     %span.label.label-success
       = furniture.created_at.to_time.to_formatted_s(:db).to_s.slice(0, 10)

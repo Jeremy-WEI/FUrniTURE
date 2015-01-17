@@ -136,7 +136,70 @@
                   .form-group
                     %textarea.form-control{:rows => "5"}
                   %button.btn-black{:type => "submit"} Submit Review
-        = button_to 'Back to Map', furnitures_path
+        -#= button_to 'Back to Map', furnitures_path
+%section.content-wrapper
+  .row
+    .col-md-12
+      .box-title
+        %h2 YOU MAY ALSO INTERESTED ...
+  .row
+    -#.col-md-3.col-xs-6
+    -#  .product-block
+    -#    .product-image
+    -#      %a{:href => "javascript:;"}
+    -#        %figure.product-display
+    -#          %img.product-mainpic{:alt => "", :src => "images/product-4.jpg", :style => "display: block;"}
+    -#            %img.product-secondpic{:alt => "", :src => "images/product-4-h.jpg"}
+    -#    .product-meta
+    -#      .product-action
+    -#        %a.addcart{:href => "javascript:;"}
+    -#          %i.icon-basket
+    -#          Add to cart
+    -#        /
+    -#        %a.wishlist{:href => "javascript:;"}
+    -#          %i.fa.fa-heart
+    -#        /
+    -#        %a.compare{:href => "javascript:;"}
+    -#          %i.fa.fa-retweet
+    -#    .product-info
+    -#      %a{:href => "javascript:;"}
+    -#        %h5.product-name Baked Chair
+    -#      .product-price
+    -#        %span $250
+    -#    .product-rating
+    -#      %i.fa.fa-star
+    -#      %i.fa.fa-star
+    -#      %i.fa.fa-star
+    -@related_furnitures.each do |furniture|
+      .col-md-3.col-xs-6
+        .product-block
+          .product-image
+            %a{:href => "javascript:;"}
+              %figure.product-display
+                %span.product-label-special.label
+                %img.product-mainpic{:alt => "", :src => "images/product-1.jpg", :style => "display: block;"}
+                  %img.product-secondpic{:alt => "", :src => "images/product-1-h.jpg"}
+          .product-meta
+            .product-action
+              %a.addcart{:href => "javascript:;"}
+                %i.icon-basket
+                Add to WatchList
+              %a.wishlist{:href => "javascript:;"}
+                %i.fa.fa-heart
+              %a.compare{:href => "#{furniture.user}"}
+                %i.fa.fa-eye
+                = furniture.user
+          .product-info
+            %a{:href => "javascript:;"}
+              %h5.product-name= furniture.title
+            .product-price
+              %span.newprice== $ #{furniture.price}
+          .product-rating
+            %i.fa.fa-star
+            %i.fa.fa-star
+            %i.fa.fa-star
+            %i.fa.fa-star
+            %i.fa.fa-star
 
 :javascript
   $(document).ready(function() {
