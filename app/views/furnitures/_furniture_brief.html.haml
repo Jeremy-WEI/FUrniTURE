@@ -22,7 +22,7 @@
     %span.label.label-info
       = furniture.tag
     %span.label.label-primary
-      = 1233
+      = Geokit::LatLng.new(furniture.latitude, furniture.longitude).distance_to(currentLocation).round(2).to_s+" miles"
     -#  distance
     %span.label.label-success
       = furniture.created_at.to_time.to_formatted_s(:db).to_s.slice(0, 10)
