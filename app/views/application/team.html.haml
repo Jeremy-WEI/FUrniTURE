@@ -1,0 +1,123 @@
+.topslider{:name => "slider"}
+  #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
+    %ol.carousel-indicators
+      %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
+      %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
+    .carousel-inner
+      .item.active.animated.fadeInUp
+        = image_tag 'team.jpg'
+        .caption
+          .slider-title.animated.fadeInDown.delay1 GET TO KNOW THE TEAM
+      .item.animated.fadeInUp
+        = image_tag 'team2.jpg'
+        .caption
+          .slider-title.animated.fadeInDown.delay1 PENNTASTIC FOUR
+          .hidden-xs.delay2.slider-desc.animated.fadeIn We are a team of 4 MCIT students at UPenn. <br>Energetic, curious and open-minded, we are ready to ROCK!
+          .slider-button.animated.fadeInUp.delay3
+            %a{:href => "javascript:;"} ABOUT US
+    %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example-generic"}
+      = image_tag 'slide-left.png'
+    %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-example-generic"}
+      = image_tag 'slide-right.png'
+/ ABOUT CONTENT
+%section.content-wrapper
+  .container
+    .row
+      .col-md-12
+        .content-box
+          %h3 About Us
+          %p
+            %strong Dichen Li, Yunchen Wei, Yan Zhou, Jingyuan Wu
+          %p We are the Penntasctic Four, from the University of Pennsylvania
+          .row
+            .col-md-12
+              .slide-about-people
+                .people-block
+                  %figure
+                    %img{:alt => "", :src => image_url("dichen.jpg")}
+                  .people-desc
+                    %span.people-name Dichen Li
+                    %span.people-job Full-stack Developer, Front-end Developer, and Back-end Developer
+                    %p fast and fierce, a game changer
+                    %ul.inline
+                      %li
+                        %a.iconize.round{:href => "https://www.facebook.com/dichen.li1"}
+                          %i.fa.fa-facebook
+                      %li
+                        %a.iconize.round{:href => "https://www.linkedin.com/profile/view?id=195220804&trk=nav_responsive_tab_profile_pic"}
+                          %i.fa.fa-linkedin
+                      %li
+                        %a.iconize.round{:href => "https://github.com/dichenli"}
+                          %i.fa.fa-github
+                / /.people
+                .people-block
+                  %figure
+                    %img{:alt => "", :src => "images/about-1.jpg"}
+                  .people-desc
+                    %span.people-name Yunchen Wei
+                    %span.people-job Fill it in!
+                    %p Sed blandit augue vitae augue scelerisque bibendum. Vivamus sit amet libero turpis, non venenatis urna. In blandit
+                    %ul.inline
+                      %li
+                        %a.iconize.round{:href => "javascript:;"}
+                          %i.fa.fa-facebook
+                      %li
+                        %a.iconize.round{:href => "javascript:;"}
+                          %i.fa.fa-twitter
+                      %li
+                        %a.iconize.round{:href => "javascript:;"}
+                          %i.fa.fa-dribbble
+                      %li
+                        %a.iconize.round{:href => "javascript:;"}
+                          %i.fa.fa-github
+                      %li
+                        %a.iconize.round{:href => "javascript:;"}
+                          %i.fa.fa-linkedin
+                / /.people
+                .people-block
+                  %figure
+                    %img{:alt => "", :src => "images/about-1.jpg"}
+                  .people-desc
+                    %span.people-name Yan Zhou
+                    %span.people-job CEO/Director
+                    %p Sed blandit augue vitae augue scelerisque bibendum. Vivamus sit amet libero turpis, non venenatis urna. In blandit
+                    %ul.inline
+                      %li
+                        %a.iconize.round{:href => "javascript:;"}
+                          %i.fa.fa-facebook
+                      %li
+                        %a.iconize.round{:href => "javascript:;"}
+                          %i.fa.fa-twitter
+                      %li
+                        %a.iconize.round{:href => "javascript:;"}
+                          %i.fa.fa-dribbble
+                      %li
+                        %a.iconize.round{:href => "javascript:;"}
+                          %i.fa.fa-github
+                      %li
+                        %a.iconize.round{:href => "javascript:;"}
+                          %i.fa.fa-google-plus
+                / /.people
+                .people-block
+                  %figure
+                    %img{:alt => "", :src => "images/about-1.jpg"}
+                  .people-desc
+                    %span.people-name Jingyuan Wu
+                    %span.people-job CEO/Director
+                    %p Sed blandit augue vitae augue scelerisque bibendum. Vivamus sit amet libero turpis, non venenatis urna. In blandit
+                    %ul.inline
+                      %li
+                        %a.iconize.round{:href => "javascript:;"}
+                          %i.fa.fa-facebook
+                      %li
+                        %a.iconize.round{:href => "javascript:;"}
+                          %i.fa.fa-twitter
+                      %li
+                        %a.iconize.round{:href => "javascript:;"}
+                          %i.fa.fa-dribbble
+                      %li
+                        %a.iconize.round{:href => "javascript:;"}
+                          %i.fa.fa-github
+                      %li
+                        %a.iconize.round{:href => "javascript:;"}
+                          %i.fa.fa-google-plus
