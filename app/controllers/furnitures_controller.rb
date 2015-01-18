@@ -1,6 +1,6 @@
 class FurnituresController < ApplicationController
 
-  before_action :authenticate_user!, only: [:new]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :set_furniture, only: [:show, :edit, :update, :destroy, :add_to_watch_list]
 
   # GET /furnitures
