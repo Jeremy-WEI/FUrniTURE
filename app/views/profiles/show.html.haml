@@ -19,7 +19,7 @@
         = @user.address
     %p
       %strong
-          Introduction:
+        Introduction:
         = @user.introduction
     .row
       .col-md-12
@@ -34,18 +34,18 @@
                       = image_tag furniture.picture1, size: '300x250'
                     .people-desc
                       %span.people-name
-                        = furniture.title
-                      %span.people
+                        %a{:href => "#{furniture_path(furniture)}"}
+                          = furniture.title
+                      %p
+                        = furniture.description
+                      %span.label.label-danger
                         - if furniture.price.to_s.strip != ""
                           = '$' + furniture.price.to_s
                         - else
                           Price N/A
-                      %p
-                        = furniture.description
                       %span.label.label-info
-                        = Geokit::LatLng.new(furniture.latitude, furniture.longitude).distance_to(@currentLocation).round(2).to_s+" miles"
+                        = Geokit::LatLng.new(furniture.latitude, furniture.longitude).distance_to(@currentLocation).round(1).to_s+" miles"
                       %span.label.label-success
-                        Posted on:
                         = furniture.created_at.to_time.to_formatted_s(:db).to_s.slice(0, 10)
                 -#%ul.inline
                 -#  %li
