@@ -89,7 +89,7 @@
                 return function(){
                     var distance = 3;
                     var pic;
-                    if(furnitures[i].picture1 == null) {
+                    if(furnitures[i].picture1 == null || furnitures[i].picture1.toString() == "") {
                     	pic = "/images/aeroplane.png";
                     } else {
                     	pic = "/uploads/furniture/"+furnitures[i].id+"/picture1.jpg";
