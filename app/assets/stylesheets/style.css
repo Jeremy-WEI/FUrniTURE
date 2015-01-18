@@ -2091,7 +2091,7 @@ small {
 }
 .nav-tabs > li.active:first-child > a:hover {
     border-left: 1px solid #CCC;
-    border-bottom: 1px solid #transparent;
+    border-bottom: 1px solid transparent;
 }
 .nav-tabs > li > a {
     border-bottom: 1px solid #CCC;
