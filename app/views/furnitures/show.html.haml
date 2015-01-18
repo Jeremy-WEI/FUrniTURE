@@ -51,37 +51,37 @@
                 .row
                   .col-md-3
                     %h4 Name:
-                  .col-md-8
+                  .col-md-8.line-break
                     %h4
                       %small= @furniture.title
                 .row
                   .col-md-3
                     %h4 Category:
-                  .col-md-8
+                  .col-md-8.line-break
                     %h4
                       %span.label.label-info= @furniture.tag
                 .row
                   .col-md-3
                     %h4 Description:
-                  .col-md-8
+                  .col-md-8.line-break
                     %h4
                       %small= @furniture.description
                 .row
                   .col-md-3
                     %h4 Oldness:
-                  .col-md-8
+                  .col-md-8.line-break
                     %h4
                       %small= @furniture.oldness
                 .row
                   .col-md-3
                     %h4 Contact's Email:
-                  .col-md-8
+                  .col-md-8.line-break
                     %h4
                       %small= @furniture.email
                 .row
                   .col-md-3
                     %h4 Phone Number:
-                  .col-md-8
+                  .col-md-8.line-break
                     %h4
                       %small= @furniture.phone
               #addr.tab-pane.fade
@@ -106,22 +106,21 @@
           .product-block
             .product-image
               %a{:href => "javascript:;"}
-                %figure.product-display
-                  %span.product-label-special.label
-                  %img.product-mainpic{:alt => "", :src => "images/product-1.jpg", :style => "display: block;"}
-                    %img.product-secondpic{:alt => "", :src => "images/product-1-h.jpg"}
+                %figure
+                  - if furniture.picture1 != nil && furniture.picture1.to_s.strip != ""
+                    = image_tag furniture.picture1, size: '300x250'
+                  - else
+                    %img{:alt => "There is no image attached.", :src => "/assets/default.jpg", :height => 250, :width => 300}
             .product-meta
               .product-action
-                %a.addcart{:href => "javascript:;"}
-                  %i.icon-basket
-                  Add to WatchList
-                %a.wishlist{:href => "javascript:;"}
+                = link_to '<i class="icon-basket"></i>Add to WatchList'.html_safe, "/furnitures/#{furniture.id}", method: :post, class: "addcart"
+                %a.wishlist
                   %i.fa.fa-heart
-                %a.compare{:href => "#{furniture.user}"}
+                %a.compare.span{:href => "#{profile_path(furniture.user.profile)}"}
                   %i.fa.fa-eye
-                  = furniture.user
+                  = furniture.user.name
             .product-info
-              %a{:href => "javascript:;"}
+              %a{:href => "/furnitures/#{furniture.id}"}
                 %h5.product-name= furniture.title
               .product-price
                 %span.newprice== $ #{furniture.price}

@@ -78,7 +78,6 @@ class FurnituresController < ApplicationController
     @furniture.address = current_user.address
     @furniture.phone = current_user.phone
     @furniture.email = current_user.email
-    @furniture.oldness = current_user.oldness
     @location = Geokit::Geocoders::GoogleGeocoder.geocode @furniture.address
     if @location.success
       @furniture.latitude = @location.lat

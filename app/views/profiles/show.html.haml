@@ -29,23 +29,35 @@
             .col-md-12
               .slide-about-people
                 - @user.furnitures.each do |furniture|
-                  .people-block
-                    %figure
-                      = image_tag furniture.picture1, size: '300x250'
-                    .people-desc
-                      %a{:href => "#{profile_path(furniture.user.profile)}", :float => "right"}
-                        = furniture.user.name
-                      %span.people-name
-                        %a{:href => "/furnitures/#{furniture.id}"}
-                          = furniture.title
-                      %p
-                        = furniture.description
-                      %span.label.label-danger
-                        - if furniture.price.to_s.strip != ""
-                          = '$' + furniture.price.to_s
+                  %a{:href => "/furnitures/#{furniture.id}"}
+                    .people-block
+                      %figure
+                        - if furniture.picture1 != nil && furniture.picture1.to_s.strip != ""
+                          = image_tag furniture.picture1, size: '300x250'
                         - else
-                          Price N/A
-                      %span.label.label-info
-                        = Geokit::LatLng.new(furniture.latitude, furniture.longitude).distance_to(@currentLocation).round(1).to_s+" miles"
-                      %span.label.label-success
-                        = furniture.created_at.to_time.to_formatted_s(:db).to_s.slice(0, 10)
+                          %img{:alt => "There is no image attached.", :src => "/assets/default.jpg", :height => 250, :width => 300}
+                      .people-desc
+                        -#%a{:href => "#{profile_path(furniture.user.profile)}", :float => "right"}
+                        = furniture.user.name
+                        %span.people-name
+                          %a{:href => "/furnitures/#{furniture.id}"}
+                            = furniture.title
+                        %p.line-break
+                          - s = furniture.description.to_s.strip
+                          - if s.length > 50
+                            - s = s.slice(0, 50) + "..."
+                          = s
+                        %span.label.label-danger
+                          - if furniture.price.to_s.strip != ""
+                            = '$' + furniture.price.to_s
+                          - else
+                            Price N/A
+                        %span.label.label-info
+                          = Geokit::LatLng.new(furniture.latitude, furniture.longitude).distance_to(@currentLocation).round(1).to_s+" miles"
+                        %span.label.label-success
+                          = furniture.created_at.to_time.to_formatted_s(:db).to_s.slice(0, 10)
+                        %br
+                        %br
+                        .row
+                          .col-md-12.text-center
+                            = button_to 'delete it', "/furnitures/#{furniture.id}", method: :delete, data: { confirm: "Are You Sure?" }, class: "btn btn-default text-center"
