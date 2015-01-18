@@ -4,19 +4,19 @@
       .col-md-4
         .content-box
           .sp-wrap
-            - if @furniture.picture1 != nil && @furniture.picture1 != ""
+            - if @furniture.picture1 != nil && @furniture.picture1.to_s.strip != ""
               %a{:href => @furniture.picture1}
                 %img{:src => @furniture.picture1, :height => "400", :width => "400"}
             - else
               %a{:href => image_url("product-1.jpg")}
                 %img{:alt => "There is no image attached.", :src => image_url("product-1-h.jpg")}
-            - if @furniture.picture2 != nil && @furniture.picture2 != ""
+            - if @furniture.picture2 != nil && @furniture.picture2.to_s.strip != ""
               %a{:href => @furniture.picture2}
                 %img{:alt => "There is no image attached.", :src => @furniture.picture2}
-            - if @furniture.picture3 != nil && @furniture.picture3 != ""
+            - if @furniture.picture3 != nil && @furniture.picture3.to_s.strip != ""
               %a{:href => @furniture.picture3}
                 %img{:alt => "There is no image attached.", :src => @furniture.picture3}
-            - if @furniture.picture4 != nil && @furniture.picture4 != ""
+            - if @furniture.picture4 != nil && @furniture.picture4.to_s.strip != ""
               %a{:href => @furniture.picture4}
                 %img{:alt => "There is no image attached.", :src => @furniture.picture4}
       .col-md-8

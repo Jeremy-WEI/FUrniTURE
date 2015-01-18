@@ -28,16 +28,3 @@
                         = furniture.created_at.to_time.to_formatted_s(:db).to_s.slice(0, 10)
                       %p
                         = button_to 'unwatch', "/my_watch_list/#{furniture.id}", method: :post, data: { confirm: "Are you sure?" }
-.row
-  .col-md-8
-    %section.content-wrapper
-      .widget-box.sidebar
-        -#%h3.wdgt-title PRODUCT LIST
-        %ul.wdgt-product
-          - @watchlist.furnitures.each do |furniture|
-            .row
-              .col-md-10
-                = render 'furnitures/furniture_brief', furniture: furniture, currentLocation: @currentLocation
-              .col-md-2
-                = button_to 'unwatch', "/my_watch_list/#{furniture.id}", method: :post
-      = link_to 'Back', furnitures_path
