@@ -42,11 +42,18 @@
                     %i.icon-basket
                   = link_to 'Add to Watch List', "/furnitures/#{@furniture.id}", method: :post
             %ul.nav.nav-tabs
+              %li
+                %a{"data-toggle" => "tab", :href => "#video"} Video
               %li.active
                 %a{"data-toggle" => "tab", :href => "#desc"} Description
               %li
                 %a{"data-toggle" => "tab", :href => "#addr"} View On Map
             .tab-content{:style => "height: 500px"}
+              #video.tab-pane.fade
+                - if @furniture.video != ""
+                  %ziggeo{"ziggeo-video" => @furniture.video}
+                - else
+                  No video available
               #desc.tab-pane.fade.in.active
                 .row
                   .col-md-3
@@ -92,7 +99,6 @@
                 %b
                   %p{:style => 'color:red'}
                 #map-location
-
 %section.content-wrapper
   .container
     .row
@@ -186,5 +192,6 @@
       //google.maps.event.trigger(map, 'resize');
     });
     google.maps.event.addDomListener(window, 'load', initialize);
+
 
   });

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150117212744) do
+ActiveRecord::Schema.define(version: 20150118062541) do
 
   create_table "furnitures", force: true do |t|
     t.string   "title"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20150117212744) do
     t.integer  "user_id"
     t.string   "address"
     t.float    "oldness"
+    t.string   "video"
   end
 
   add_index "furnitures", ["user_id"], name: "index_furnitures_on_user_id"
@@ -42,6 +43,16 @@ ActiveRecord::Schema.define(version: 20150117212744) do
 
   add_index "furnitures_watchlists", ["furniture_id"], name: "index_furnitures_watchlists_on_furniture_id"
   add_index "furnitures_watchlists", ["watchlist_id"], name: "index_furnitures_watchlists_on_watchlist_id"
+
+  create_table "identities", force: true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "identities", ["user_id"], name: "index_identities_on_user_id"
 
   create_table "profiles", force: true do |t|
     t.integer  "user_id"
