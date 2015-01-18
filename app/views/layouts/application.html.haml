@@ -57,11 +57,11 @@
                       %i.icon-lock
                     = link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'
                 - else
-                  %a.info.login{:href => "login.html"}
+                  %a.info.login{:href => ""}
                     %span.icon>
                       %i.icon-lock
                     = link_to "Login", new_user_session_path, :class => 'navbar-link'
-                  %a.info.login{:href => "login.html"}
+                  %a.info.login{:href => ""}
                     %span.icon>
                       %i.icon-lock
                     = link_to "Sign up", new_user_registration_path, :class => 'navbar-link'
@@ -88,7 +88,7 @@
                           HOME
                           %b.caret
                       %li
-                        %a ABOUT
+                        %a{:href => "/team"} ABOUT US
                       %li.dropdown
                         %a.dropdown-toggle{"data-toggle" => "dropdown"}
                           PAGES
@@ -132,6 +132,8 @@
           .col-md-12
             .shop-info
               %p FUrniTURE, best used furniture trading platform
+              %a{:href => "/team"}
+                ABOUT US
               %p
                 Powered by
                 %a Bootstrap
