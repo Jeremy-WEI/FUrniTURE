@@ -4,12 +4,12 @@
       .row
         .product-order
           .row
-            .col-md-12
-              .col-md-10
-                - if @price == ">$1000"
-                  = "#{@count} results for #{@tag}!"
-                - else
-                  = "#{@count} results for #{@tag} between $0 and $#{@price}, #{@miles} miles from you!"
+            .col-md-12.text-center
+              - if @price == ">$1000"
+                = "#{@count} results for #{@tag}!"
+              - else
+                = "#{@count} results for #{@tag} between $0 and $#{@price}, #{@miles} miles from you!"
+          %hr
           %form{:action => "search"}
             .row
               .col-md-12
@@ -23,14 +23,13 @@
                     %option{:value => "200"}$0 - $200
                     %option{:value => "500"}$0 - $500
                     %option{:value => "1000"}$0 - $1000
-                    %option{:value => "1000000"}More than $1000
                 .col-md-3
                   %select.form-control{:name => "miles"}
                     %option{:value => 1}Within 1 mile
                     %option{:value => 5}Within 5 miles
                     %option{:value => 10}Within 10 miles
                     %option{:value => 30}Within 30 miles
-                    %option{:value => 10000}More than 30 miles
+                    %option{:value => 10000}Within than 10000 miles
                 .col-md-3
                   %select.form-control{:name => "tag"}
                     %option{:value => "Chair"} Chair
