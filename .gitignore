@@ -31,4 +31,3 @@ config/initializers/secret_token.rb
 bower.json
 .idea/*
 .DS_Store
-/public/uploads/furniture

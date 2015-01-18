@@ -44,16 +44,6 @@ ActiveRecord::Schema.define(version: 20150118062541) do
   add_index "furnitures_watchlists", ["furniture_id"], name: "index_furnitures_watchlists_on_furniture_id"
   add_index "furnitures_watchlists", ["watchlist_id"], name: "index_furnitures_watchlists_on_watchlist_id"
 
-  create_table "identities", force: true do |t|
-    t.integer  "user_id"
-    t.string   "provider"
-    t.string   "uid"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "identities", ["user_id"], name: "index_identities_on_user_id"
-
   create_table "profiles", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
