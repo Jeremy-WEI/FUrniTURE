@@ -6,7 +6,7 @@
           .sp-wrap
             - if @furniture.picture1 != nil && @furniture.picture1.to_s.strip != ""
               %a{:href => @furniture.picture1}
-                %img{:alt => "There is no image attached.", :src => @furniture.picture1}
+                %img{:src => @furniture.picture1, :height => "400", :width => "400"}
             - else
               %a{:href => image_url("product-1.jpg")}
                 %img{:alt => "There is no image attached.", :src => image_url("product-1-h.jpg")}
@@ -46,9 +46,7 @@
               %li.active
                 %a{"data-toggle" => "tab", :href => "#desc"} Description
               %li
-                %a{"data-toggle" => "tab", :href => "#addr"} Address
-              %li
-                %a{"data-toggle" => "tab", :href => "#addinfo"} Additional Information
+                %a{"data-toggle" => "tab", :href => "#addr"} View On Map
             .tab-content.scroll-view
               #desc.tab-pane.fade.in.active
                 .row
@@ -89,30 +87,6 @@
                 %b
                   %p{:style => 'color:red'}
                 #map-location
-              #addinfo.tab-pane.fade
-                %p
-                  %strong{:style => 'color:red'} Additional Information
-                %hr/
-                %table.product-shop-info
-                  %tbody
-                    %tr
-                      %th Size
-                      %td
-                        %p Long, Medium, Short
-                    %tr
-                      %th Colour
-                      %td
-                        %p Pearl
-                    %tr
-                      %th Size &amp; Fit
-                      %td
-                        %p This style comes in a regular fit which fits true to size.
-                    %tr
-                      %th Other Info
-                      %td
-                        %p Odio convallis suscipit venenatis, ante ipsum
-
-
 
 %section.content-wrapper
   .container
