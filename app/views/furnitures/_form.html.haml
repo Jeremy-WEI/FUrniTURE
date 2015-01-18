@@ -1,4 +1,3 @@
-%hr
 = form_for @furniture do |f|
   - if @furniture.errors.any?
     #error_explanation
@@ -6,76 +5,69 @@
       %ul
         - @furniture.errors.full_messages.each do |msg|
           %li= msg
-  .row
-    .col-md-8
-      .field
-        = f.label :title
-        .row
-          .col-md-8
-            = f.text_field :title, {class: "form-control", placeholder: "A title for your furniture"}
-  %br
-  .row
-    .col-md-8
-      .field
-        = f.label :tag, {placeholder: "Select the category of your furniture"}
-        = f.select :tag, ['chair', 'table', 'bed', 'sofa'], {class: "form-control", placeholder: "A title for your furniture"}
-  %p
-    %strong
-      Upload some pictures for your furniture
-  .row
-    .field
-      .col-md-2
-        = f.label :picture1
-        = f.file_field :picture1
-      .col-md-2
-        = f.label :picture2
-        = f.file_field :picture2
-      .col-md-2
-        = f.label :picture3
-        = f.file_field :picture3
-      .col-md-2
-        = f.label :picture4
-        = f.file_field :picture4
-  %br
-  .row
-    .col-md-8
-      .field
-        = f.label :price
-        .row
-          .col-md-8
-            = f.text_field :price, {class: "form-control", placeholder: "Propose a price for your furniture"}
-  %br
-  .row
-    .col-md-8
-      .field
-        = f.label :oldness
-        .row
-          .col-md-8
-            = f.text_field :oldness, {class: "form-control", placeholder: "Enter the year of usage of your furniture"}
-  %br
-  .row
-    .col-md-8
-      .field
-        = f.label :description
-        .row
-          .col-md-8
-            = f.text_area :description, {class: "form-control", placeholder: "More detailed descrptions about your furniture."}
-  %br
-  -#.row
-  -#  .col-md-8
-  -#    .field
-  -#      = f.label :email
-  -#      .row
-  -#        .col-md-8
-  -#          = f.text_field :email, {class: "form-control", placeholder: "Your email address shown to buyers (optional)"}
-  -#%br
-  -#.row
-  -#  .col-md-8
-  -#    .field
-  -#      = f.label :phone
-  -#      .row
-  -#        .col-md-8
-  -#          = f.text_field :phone, {class: "form-control", placeholder: "Your phone number shown to buyers (optional)"}
-  -#%br
-  .actions
-    = f.submit 'Save'
+  .form-group
+    .row
+      .col-md-12
+        .col-md-3.text-right
+          = f.label :title, "Furniture Name"
+        .col-md-6
+          = f.text_field :title, {class: "form-control", placeholder: "Furniture Name"}
+  .form-group
+    .row
+      .col-md-12
+        .col-md-3.text-right
+          = f.label :tag, "Furniture Type"
+        .col-md-6
+          = f.select :tag, ['Chair', 'Table', 'Bed', 'Sofa'], {}, {class: "form-control"}
+  .form-group
+    .row
+      .col-md-12
+        .col-md-3.text-right
+          = f.label :picture1
+        .col-md-6
+          = f.file_field :picture1
+  .form-group
+    .row
+      .col-md-12
+        .col-md-3.text-right
+          = f.label :picture2
+        .col-md-6
+          = f.file_field :picture2
+  .form-group
+    .row
+      .col-md-12
+        .col-md-3.text-right
+          = f.label :picture3
+        .col-md-6
+          = f.file_field :picture3
+  .form-group
+    .row
+      .col-md-12
+        .col-md-3.text-right
+          = f.label :picture4
+        .col-md-6
+          = f.file_field :picture4
+  .form-group
+    .row
+      .col-md-12
+        .col-md-3.text-right
+          = f.label :price
+        .col-md-6
+          = f.text_field :price, {class: "form-control", placeholder: "Propose a price for your furniture"}
+  .form-group
+    .row
+      .col-md-12
+        .col-md-3.text-right
+          = f.label :oldness
+        .col-md-6
+          = f.text_field :oldness, {class: "form-control", placeholder: "How Long Did You Use The Furniture?"}
+  .form-group
+    .row
+      .col-md-12
+        .col-md-3.text-right
+          = f.label :description
+        .col-md-6
+          = f.text_area :description, {class: "form-control", placeholder: "Give Some Detailed Descriptions About Your Furniture"}
+  .row.actions
+    .col-md-12.text-center
+      = f.submit "POST", class: "btn btn-default"

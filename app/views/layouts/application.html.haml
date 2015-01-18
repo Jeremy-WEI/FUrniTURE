@@ -35,7 +35,7 @@
                   %a.info{:href => ""}
                     %span.icon>
                       %i.icon-money
-                    = link_to 'View your post', profile_path(current_user.profile)
+                    = link_to 'View Your Post', profile_path(current_user.profile)
                   %a.info.cart{:href => ""}
                     %span.icon>
                       %i.icon-basket
@@ -43,7 +43,7 @@
                   %a.info.login{:href => ""}
                     %span.icon>
                       %i.icon-lock
-                    = link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link'
+                    = link_to 'Edit Profile', edit_user_registration_path, :class => 'navbar-link'
                   %a.info.login{:href => ""}
                     %span.icon>
                       %i.icon-lock
@@ -79,62 +79,20 @@
                         %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
                           HOME
                           %b.caret
-                        %ul.dropdown-menu
-                          %li
-                            %a{:href => "index.html"} Home Default
-                          %li
-                            %a{:href => "index-business.html"} Home Business Version
-                          %li
-                            %a{:href => "index-business-full-width-slider.html"} Home Business Alternative
                       %li
                         %a{:href => "about.html"} ABOUT
                       %li.dropdown
                         %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
                           PAGES
                           %b.caret
-                        %ul.dropdown-menu
-                          %li
-                            %a{:href => "404.html"} 404 Error page
-                          %li
-                            %a{:href => "about.html"} About
-                          %li
-                            %a{:href => "cart.html"} Cart
-                          %li
-                            %a{:href => "checkout.html"} Checkout
-                          %li
-                            %a{:href => "coming-soon.html"} Coming Soon
-                          %li
-                            %a{:href => "contact.html"} Contact
-                          %li
-                            %a{:href => "login.html"} Login
-                          %li
-                            %a{:href => "pricing-tables.html"} Pricing Tables
-                          %li
-                            %a{:href => "shop.html"} Shop
-                          %li
-                            %a{:href => "services.html"} Services
-                          %li
-                            %a{:href => "shortcodes.html"} Shortcode
                       %li.dropdown
                         %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
                           SHOP
                           %b.caret
-                        %ul.dropdown-menu
-                          %li
-                            %a{:href => "shop.html"} Product List
-                          %li
-                            %a{:href => "product-detail.html"} Product Detail
                       %li.dropdown
                         %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
                           Blog
                           %b.caret
-                        %ul.dropdown-menu
-                          %li
-                            %a{:href => "blog.html"} Blog Page
-                          %li
-                            %a{:href => "blog-post.html"} Blog Post Sidebar
-                          %li
-                            %a{:href => "full-width.html"} Blog Post Full Width
                       %li
                         %a{:href => "shortcodes.html"} SHORTCODE
                       %li
@@ -146,7 +104,7 @@
           .row
             .col-md-12
               .box-title
-                %h2 OUR BRAND
+                %h2 SPONSORS
           .row
             .col-md-12
               %ul.brands
@@ -165,4 +123,4 @@
               %p Tumbas Business Multipurpose Template
               %p
                 Powered by
-                %a{:href => "javascript:;"} Bootstrap
+                %a Bootstrap

@@ -1,15 +1,9 @@
-/ CONTACT CONTENT
-%hr
-.outter
-  %section.content-wrapper
-    .container
-      %section.content-wrapper
-        .container
-          .row
-            .col-md-12
-              .content-box
-                %h3 Add a furniture to sell
-                = render 'form'
-= link_to 'Show', @furniture
-\|
-= link_to 'Back', furnitures_path
+%section.content-wrapper
+  .container
+    .row
+      .col-md-12
+        .content-box
+          %h3.text-center NEW POST
+          = render 'form'
+-#= link_to 'Show', @furniture
+-#= link_to 'Back', furnitures_path
