@@ -7,8 +7,8 @@ class FurnituresController < ApplicationController
   # GET /furnitures.json
   def index
     @furnitures = Furniture.all
-    @currentLocation = [23, 170]
-    @miles = 100
+    @currentLocation = [39.95, -75.19]
+    @miles = 5
   end
 
   def search
@@ -37,6 +37,8 @@ class FurnituresController < ApplicationController
     tmp = Geokit::Geocoders::GoogleGeocoder.geocode(address)
     if tmp.success
       @currentLocation = [tmp.lat, tmp.lng]
+      userlocation = Geokit::LatLng.new(@furniture.latitude, @furniture.longitude)
+      @distance = userlocation.distance_to(@currentLocation)
     else
       @currentLocation = nil
     end
