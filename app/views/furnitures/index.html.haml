@@ -3,6 +3,13 @@
     .col-md-8
       .row
         .product-order
+          .row
+            .col-md-12
+              .col-md-10
+                - if @price == ">$1000"
+                  = "#{@count} results for #{@tag}!"
+                - else
+                  = "#{@count} results for #{@tag} between $0 and $#{@price}, #{@miles} miles from you!"
           %form{:action => "search"}
             .row
               .col-md-12
@@ -20,9 +27,9 @@
                 .col-md-3
                   %select.form-control{:name => "miles"}
                     %option{:value => 1}Within 1 mile
-                    %option{:value => 5}1 - 5 miles
-                    %option{:value => 10}5 - 10 miles
-                    %option{:value => 30}10 - 30 miles
+                    %option{:value => 5}Within 5 miles
+                    %option{:value => 10}Within 10 miles
+                    %option{:value => 30}Within 30 miles
                     %option{:value => 10000}More than 30 miles
                 .col-md-3
                   %select.form-control{:name => "tag"}

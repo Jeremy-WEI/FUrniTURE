@@ -17,6 +17,9 @@ class ApplicationController < ActionController::Base
 
   end
 
+  def team
+    render 'application/team'
+  end
 
   # def search
   #   tag = @search.tag

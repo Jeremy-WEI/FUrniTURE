@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   post '/furnitures/:id', to: 'furnitures#add_to_watch_list'
   post '/my_watch_list/:furniture_id', to: 'watchlists#unwatch'
   # get '/video/:token', to: 'furnitures#create'
-
+  get '/team', to: 'application#team'
   get '/search', to: 'furnitures#search'
   # resources :users
 
