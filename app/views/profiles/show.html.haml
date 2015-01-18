@@ -3,34 +3,50 @@
     .row
       .col-md-12
         .content-box
-          %h3= @user.email
-    -#%p
-            -#%strong @user.description
-    -#%p=
-            -#%strong== Contact: #{@user.description}
-    -#%p=
-            -#%strong== Address: #{@user.address}
+          %h3
+            = @user.name
+    %p
+      %strong
+        Email:
+        = @user.email
+    %p
+      %strong
+        Phone:
+        = @user.phone
+    %p
+      %strong
+        Address:
+        = @user.address
+    %p
+      %strong
+        Self Introduction:
+        = @user.introduction
     .row
       .col-md-12
         .content-box
           %h3 WHAT HE/SHE SELLS
-          %p
-            Phasellus quis lectus metus, at posuere neque.
           .row
             .col-md-12
               .slide-about-people
-                -1.upto(5) do
+                - @user.furnitures.each do |furniture|
                   .people-block
                     %figure
-                      = image_tag 'about-1.jpg', size: '300x250'
+                      = image_tag furniture.picture1, size: '300x250'
                     .people-desc
-                      %span.people-name John Doe
-                      %span.people-job CEO/Director
-                      %p Sed blandit augue vitae augue scelerisque bibendum. Vivamus sit amet libero turpis, non venenatis urna. In blandit
+                      %span.people-name
+                        = furniture.title
+                      %span.people
+                        - if furniture.price.to_s.strip != ""
+                          = '$' + furniture.price.to_s
+                        - else
+                          Price N/A
+                      %p
+                        = furniture.description
                       %span.label.label-info
-                        bed123
+                        = Geokit::LatLng.new(furniture.latitude, furniture.longitude).distance_to(@currentLocation).round(2).to_s+" miles"
                       %span.label.label-success
-                        2012/12/12
+                        Posted on:
+                        = furniture.created_at.to_time.to_formatted_s(:db).to_s.slice(0, 10)
                 -#%ul.inline
                 -#  %li
                 -#    %a.iconize.round{:href => "javascript:;"}
@@ -73,6 +89,3 @@
                 -#          %a.iconize.round{:href => "javascript:;"}
                 -#            %i.fa.fa-google-plus
 
-= link_to 'Edit', edit_profile_path(@profile)
-\|
-= link_to 'Back', profiles_path

@@ -26,8 +26,8 @@
               = @furniture.title
             %ul.product-breadcrumb
               %li
-                %a{:href => "javscript:;"}
-                  = @furniture.user
+                %a{:href => "/profiles/#{@furniture.user.profile.id}"}
+                  = @furniture.user.name
               %li.current
                 %a{:href => "javscript:;"}
                   = @furniture.title
@@ -119,7 +119,7 @@
     .row
       .col-md-12
         .box-title
-          %h2 YOU MAY ALSO INTERESTED ...
+          %h2 YOU MAY ALSO LIKE ...
   .row
     .col-md-12
       -@related_furnitures.each do |furniture|

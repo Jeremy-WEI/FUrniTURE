@@ -10,6 +10,7 @@ class ProfilesController < ApplicationController
 
   def show
     @user = @profile.user
+    @currentLocation = [23, 170]
     respond_with(@profile)
   end
 
