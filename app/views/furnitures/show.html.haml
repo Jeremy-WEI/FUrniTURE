@@ -2,23 +2,24 @@
   .container
     .row
       .col-md-4
+        %br
         .content-box
           .sp-wrap
             - if @furniture.picture1 != nil && @furniture.picture1.to_s.strip != ""
               %a{:href => @furniture.picture1}
-                %img{:src => @furniture.picture1, :height => "400", :width => "400"}
+                %img{:src => @furniture.picture1}
             - else
-              %a{:href => image_url("default.jpg")}
-                %img{:alt => "There is no image attached.", :height => "400", :width => "400", :src => "/assets/default.jpg"}
+              %a{:href => image_url("product-1.jpg")}
+                %img{:src => image_url("product-1-h.jpg")}
             - if @furniture.picture2 != nil && @furniture.picture2.to_s.strip != ""
               %a{:href => @furniture.picture2}
-                %img{:alt => "There is no image attached.", :src => @furniture.picture2}
+                %img{:src => @furniture.picture2}
             - if @furniture.picture3 != nil && @furniture.picture3.to_s.strip != ""
               %a{:href => @furniture.picture3}
-                %img{:alt => "There is no image attached.", :src => @furniture.picture3}
+                %img{:src => @furniture.picture3}
             - if @furniture.picture4 != nil && @furniture.picture4.to_s.strip != ""
               %a{:href => @furniture.picture4}
-                %img{:alt => "There is no image attached.", :src => @furniture.picture4}
+                %img{:src => @furniture.picture4}
       .col-md-8
         .content-box
           .product-meta
@@ -29,15 +30,13 @@
                 %a{:href => "/profiles/#{@furniture.user.profile.id}"}
                   = @furniture.user.name
               %li.current
-                %a{:href => "javscript:;"}
-                  = @furniture.title
+                %a= @furniture.title
           .product-desc
             .product-price
               .price-new
                 Price
                 %span
                   = "$" + @furniture.price.to_s
-
                 %a.info.cart{:href => ""}
                   %span.icon>
                     %i.icon-basket
@@ -49,42 +48,51 @@
                 %a{"data-toggle" => "tab", :href => "#desc"} Description
               %li
                 %a{"data-toggle" => "tab", :href => "#addr"} View On Map
-            .tab-content
+            .tab-content{:style => "height: 500px"}
               #video.tab-pane.fade
-                %ziggeo{"ziggeo-video" => @furniture.video}
+                - if @furniture.video != ""
+                  %ziggeo{"ziggeo-video" => @furniture.video}
+                - else
+                  No video available
               #desc.tab-pane.fade.in.active
                 .row
-                  .col-md-2
-                    %strong
-                      Category:
-                  .col-md-2
-                    .product-tag
-                      .product-tag-content
-                        %span
-                          = @furniture.tag.to_s
-                %p.text-left
-                  %strong
-                    Description:
-                %p.text-left
-                  = @furniture.description
-                %p.text-left
-                  %strong
-                    Year:
-                %p.text-left
-                  = @furniture.oldness.to_s + "years"
-                %p.text-left
-                  %strong
-                    Contact's Email:
-                %p.text-left
-                  = @furniture.email
-                %p.text-left
-                  %strong
-                    Phone Number:
-                %p.text-left
-                  = @furniture.phone
+                  .col-md-3
+                    %h4 Name:
+                  .col-md-8.line-break
+                    %h4
+                      %small= @furniture.title
+                .row
+                  .col-md-3
+                    %h4 Category:
+                  .col-md-8.line-break
+                    %h4
+                      %span.label.label-info= @furniture.tag
+                .row
+                  .col-md-3
+                    %h4 Description:
+                  .col-md-8.line-break
+                    %h4
+                      %small= @furniture.description
+                .row
+                  .col-md-3
+                    %h4 Oldness:
+                  .col-md-8.line-break
+                    %h4
+                      %small= @furniture.oldness
+                .row
+                  .col-md-3
+                    %h4 Contact's Email:
+                  .col-md-8.line-break
+                    %h4
+                      %small= @furniture.email
+                .row
+                  .col-md-3
+                    %h4 Phone Number:
+                  .col-md-8.line-break
+                    %h4
+                      %small= @furniture.phone
               #addr.tab-pane.fade
-                %b
-                  Address
+                %b Address:
                 - if @furniture.user != nil
                   = @furniture.address
                 %br
@@ -104,22 +112,21 @@
           .product-block
             .product-image
               %a{:href => "javascript:;"}
-                %figure.product-display
-                  %span.product-label-special.label
-                  %img.product-mainpic{:alt => "", :src => "images/product-1.jpg", :style => "display: block;"}
-                    %img.product-secondpic{:alt => "", :src => "images/product-1-h.jpg"}
+                %figure
+                  - if furniture.picture1 != nil && furniture.picture1.to_s.strip != ""
+                    = image_tag furniture.picture1, size: '300x250'
+                  - else
+                    = image_tag 'default.jpg', size: "300x250"
             .product-meta
               .product-action
-                %a.addcart{:href => "javascript:;"}
-                  %i.icon-basket
-                  Add to WatchList
-                %a.wishlist{:href => "javascript:;"}
+                = link_to '<i class="icon-basket"></i>Add to WatchList'.html_safe, "/furnitures/#{furniture.id}", method: :post, class: "addcart"
+                %a.wishlist
                   %i.fa.fa-heart
-                %a.compare{:href => "#{furniture.user}"}
+                %a.compare.span{:href => "#{profile_path(furniture.user.profile)}"}
                   %i.fa.fa-eye
-                  = furniture.user
+                  = furniture.user.name
             .product-info
-              %a{:href => "javascript:;"}
+              %a{:href => "/furnitures/#{furniture.id}"}
                 %h5.product-name= furniture.title
               .product-price
                 %span.newprice== $ #{furniture.price}
@@ -185,5 +192,6 @@
       //google.maps.event.trigger(map, 'resize');
     });
     google.maps.event.addDomListener(window, 'load', initialize);
+
 
   });

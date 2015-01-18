@@ -13,15 +13,18 @@
                       - if furniture.picture1 != nil && furniture.picture1.to_s.strip != ""
                         = image_tag furniture.picture1, size: '300x250'
                       - else
-                        %img{:alt => "There is no image attached.", :src => "/assets/default.jpg", :height => 250, :width => 300}
+                        = image_tag 'default.jpg', size: "300x250"
                     .people-desc
                       %a{:href => "#{profile_path(furniture.user.profile)}", :float => "right"}
                         = furniture.user.name
                       %span.people-name
                         %a{:href => "/furnitures/#{furniture.id}"}
                           = furniture.title
-                      %p
-                        = furniture.description
+                      %p.line-break
+                        - s = furniture.description.to_s.strip
+                        - if s.length > 50
+                          - s = s.slice(0, 50) + "..."
+                        = s
                       %span.label.label-danger
                         - if furniture.price.to_s.strip != ""
                           = '$' + furniture.price.to_s

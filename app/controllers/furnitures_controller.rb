@@ -28,7 +28,7 @@ class FurnituresController < ApplicationController
     @furnitures = []
     furnitureAll.each do |f|
       location = Geokit::LatLng.new(f.latitude, f.longitude)
-      if f.tag == tag and f.price.to_i <= price.to_i and f.price.to_i >= (price.to_i-50) and location.distance_to(@currentLocation) <= @miles.to_i and location.distance_to(@currentLocation) >= (@miles.to_i - 50)
+      if f.tag == tag and f.price.to_i <= price.to_i and location.distance_to(@currentLocation) <= @miles.to_i
         @furnitures.append(f)
       end
     end
@@ -54,7 +54,6 @@ class FurnituresController < ApplicationController
   # GET /furnitures/new
   def new
     @furniture = Furniture.new
-
   end
 
   # GET /furnitures/1/edit
@@ -100,7 +99,7 @@ class FurnituresController < ApplicationController
   def update
     respond_to do |format|
       if @furniture.update(furniture_params)
-        format.html { redirect_to @furniture, notice: 'Furniture was successfully updated.' }
+        format.html { redirect_to @furniture, notice: 'Furniture Has Been Successfully Updated.' }
         format.json { render :show, status: :ok, location: @furniture }
       else
         format.html { render :edit }
@@ -114,7 +113,7 @@ class FurnituresController < ApplicationController
   def destroy
     @furniture.destroy
     respond_to do |format|
-      format.html { redirect_to furnitures_url, notice: 'Furniture was successfully destroyed.' }
+      format.html { redirect_to furnitures_url, notice: 'Furniture Has Been Successfully Deleted.' }
       format.json { head :no_content }
     end
   end
@@ -127,6 +126,6 @@ class FurnituresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def furniture_params
-      params.require(:furniture).permit(:title, :tag, :picture1, :picture2, :picture3, :picture4, :price, :description, :email, :phone, :latitude, :longitude, :video)
+      params.require(:furniture).permit(:title, :tag, :picture1, :picture2, :picture3, :picture4, :price, :description, :email, :phone, :latitude, :longitude, :video, :oldness)
     end
 end

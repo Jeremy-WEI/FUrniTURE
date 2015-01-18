@@ -14,7 +14,7 @@
                   .col-md-3.text-right
                     = f.label :email
                   .col-md-6
-                    = f.email_field :email, {autofocus: true, class: "form-control", placeholder: "EMAIL"}
+                    = f.email_field :email, {autofocus: true, class: "form-control", placeholder: "Email"}
             .form-group
               .row
                 - if devise_mapping.confirmable? && resource.pending_reconfirmation?

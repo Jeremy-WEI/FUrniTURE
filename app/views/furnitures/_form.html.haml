@@ -18,7 +18,7 @@
         .col-md-3.text-right
           = f.label :tag, "Furniture Type"
         .col-md-6
-          = f.select :tag, ['Chair', 'Table', 'Bed', 'Sofa', 'Lamp', 'Mattress', 'Microwave, Shelf'], {}, {class: "form-control"}
+          = f.select :tag, ['Chair', 'Table', 'Bed', 'Sofa', 'Lamp', 'Mattress', 'Microwave', 'Shelf'], {}, {class: "form-control"}
   .form-group
     .row
       .col-md-12
@@ -86,7 +86,6 @@
 :javascript
   $(document).ready(function(){
       $("#hidden_token").hide();
-
       ZiggeoApi.Events.on("submitted", function (data) {
       	document.getElementById("hidden_token").value = data.video.token;
       });

@@ -9,8 +9,8 @@
     = furniture.user.name
   %p
     - s = furniture.description.to_s.strip
-    - if s.length > 50
-      - s = s.slice(0, 50) + "..."
+    - if s.length > 38
+      - s = s.slice(0, 38) + "..."
     = s
   %p
     %span.label.label-danger
