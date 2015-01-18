@@ -11,7 +11,7 @@
         = @user.email
     %p
       %strong
-        Phone:
+        Phone Number:
         = @user.phone
     %p
       %strong
@@ -19,7 +19,7 @@
         = @user.address
     %p
       %strong
-        Self Introduction:
+        Introduction:
         = @user.introduction
     .row
       .col-md-12
@@ -29,63 +29,22 @@
             .col-md-12
               .slide-about-people
                 - @user.furnitures.each do |furniture|
-                  .people-block
-                    %figure
-                      = image_tag furniture.picture1, size: '300x250'
-                    .people-desc
-                      %span.people-name
-                        = furniture.title
-                      %span.people
-                        - if furniture.price.to_s.strip != ""
-                          = '$' + furniture.price.to_s
-                        - else
-                          Price N/A
-                      %p
-                        = furniture.description
-                      %span.label.label-info
-                        = Geokit::LatLng.new(furniture.latitude, furniture.longitude).distance_to(@currentLocation).round(2).to_s+" miles"
-                      %span.label.label-success
-                        Posted on:
-                        = furniture.created_at.to_time.to_formatted_s(:db).to_s.slice(0, 10)
-                -#%ul.inline
-                -#  %li
-                -#    %a.iconize.round{:href => "javascript:;"}
-                -#      %i.fa.fa-facebook
-                -#  %li
-                -#    %a.iconize.round{:href => "javascript:;"}
-                -#      %i.fa.fa-twitter
-                -#  %li
-                -#    %a.iconize.round{:href => "javascript:;"}
-                -#      %i.fa.fa-dribbble
-                -#  %li
-                -#    %a.iconize.round{:href => "javascript:;"}
-                -#      %i.fa.fa-github
-                -#  %li
-                -#    %a.iconize.round{:href => "javascript:;"}
-                -#      %i.fa.fa-google-plus
-                -#-@furnitures.each do |furniture|
-                -#  .people-block
-                -#    %figure
-                -#      = image_tag 'about-1.jpg', size: '300x250'
-                -#    .people-desc
-                -#      %span.people-name furniture.title
-                -#      %span.people-job furniture.price
-                -#      %span.label.label-info furniture.tag
-                -#      %span.label.success furniture.created_at
-                -#      %ul.inline
-                -#        %li
-                -#          %a.iconize.round{:href => "javascript:;"}
-                -#            %i.fa.fa-facebook
-                -#        %li
-                -#          %a.iconize.round{:href => "javascript:;"}
-                -#            %i.fa.fa-twitter
-                -#        %li
-                -#          %a.iconize.round{:href => "javascript:;"}
-                -#            %i.fa.fa-dribbble
-                -#        %li
-                -#          %a.iconize.round{:href => "javascript:;"}
-                -#            %i.fa.fa-github
-                -#        %li
-                -#          %a.iconize.round{:href => "javascript:;"}
-                -#            %i.fa.fa-google-plus
-
+                  %a{:href => "/furnitures/#{furniture.id}"}
+                    .people-block
+                      %figure
+                        = image_tag furniture.picture1, size: '300x250'
+                      .people-desc
+                        %span.people-name
+                          = furniture.title
+                        %span.people
+                          - if furniture.price.to_s.strip != ""
+                            = '$' + furniture.price.to_s
+                          - else
+                            Price N/A
+                        %p
+                          = furniture.description
+                        %span.label.label-info
+                          = Geokit::LatLng.new(furniture.latitude, furniture.longitude).distance_to(@currentLocation).round(2).to_s+" miles"
+                        %span.label.label-success
+                          Posted on:
+                          = furniture.created_at.to_time.to_formatted_s(:db).to_s.slice(0, 10)
