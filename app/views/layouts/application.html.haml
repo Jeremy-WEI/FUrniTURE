@@ -6,6 +6,10 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.exp"
     = csrf_meta_tags
+    %link{:href => "//assets.ziggeo.com/css/ziggeo-betajs-player.min.css", :rel => "stylesheet"}/
+    %script{:src => "//assets.ziggeo.com/js/ziggeo-jquery-json2-betajs-player.min.js"}
+    :javascript
+      ZiggeoApi.token = "d71ecbd682e677ecd959316ac837e2cc";
   %body
     .outter
       %section.top-block
@@ -128,3 +132,10 @@
               %p
                 Powered by
                 %a Bootstrap
+                -#%ziggeo
+                -#%ziggeo{"ziggeo-video" => "5f582e5151bf0520f7c3dee935836d5d"}
+                -#%ziggeo{"ziggeo-input_bind" => "videotoken"}
+                -#:javascript
+                -#  ZiggeoApi.Events.on("submitted", function (data) {
+                -#  	alert("Submitted a new video with token '" + data.video.token + "'!");
+                -#  });

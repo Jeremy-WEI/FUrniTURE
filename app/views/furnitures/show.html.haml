@@ -43,11 +43,15 @@
                     %i.icon-basket
                   = link_to 'Add to Watch List', "/furnitures/#{@furniture.id}", method: :post
             %ul.nav.nav-tabs
+              %li
+                %a{"data-toggle" => "tab", :href => "#video"} Video
               %li.active
                 %a{"data-toggle" => "tab", :href => "#desc"} Description
               %li
                 %a{"data-toggle" => "tab", :href => "#addr"} View On Map
-            .tab-content.scroll-view
+            .tab-content
+              #video.tab-pane.fade
+                %ziggeo{"ziggeo-video" => @furniture.video}
               #desc.tab-pane.fade.in.active
                 .row
                   .col-md-2
@@ -87,7 +91,6 @@
                 %b
                   %p{:style => 'color:red'}
                 #map-location
-
 %section.content-wrapper
   .container
     .row

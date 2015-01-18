@@ -68,6 +68,27 @@
           = f.label :description
         .col-md-6
           = f.text_area :description, {class: "form-control", placeholder: "Give Some Detailed Descriptions About Your Furniture"}
+  .form-group
+    .row
+      .col-md-12
+        .col-md-3.text-right
+          %b
+            You may record a short video of your furniture.
+        .row
+          .col-md-2
+          .col-md-8.text-right
+            %ziggeo{"ziggeo-input_bind" => "videotoken"}
+            = f.text_field :video, {id: "hidden_token"}
   .row.actions
     .col-md-12.text-center
       = f.submit "POST", class: "btn btn-default"
+
+:javascript
+  $(document).ready(function(){
+      $("#hidden_token").hide();
+
+      ZiggeoApi.Events.on("submitted", function (data) {
+      	document.getElementById("hidden_token").value = data.video.token;
+      });
+  });
+
