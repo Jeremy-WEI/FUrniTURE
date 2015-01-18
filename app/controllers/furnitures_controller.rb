@@ -1,23 +1,29 @@
 class FurnituresController < ApplicationController
 
-  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  # before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :set_furniture, only: [:show, :edit, :update, :destroy, :add_to_watch_list]
 
   # GET /furnitures
   # GET /furnitures.json
   def index
     @furnitures = Furniture.all
-    @currentLocation = [39.95, -75.19]
+    if user_signed_in?
+      address = current_user.address
+      tmp = Geokit::Geocoders::GoogleGeocoder.geocode(address)
+      @currentLocation = [tmp.lat, tmp.lng]
+    else
+      @currentLocation = [39.95, -75.19]
+    end
     @miles = 5
   end
 
   def search
     tag = params[:tag]
-    address = params[:address]
-    price = params[:price]
-    @miles = params[:miles]
+    address = current_user.address
     tmp = Geokit::Geocoders::GoogleGeocoder.geocode(address)
     @currentLocation = [tmp.lat, tmp.lng]
+    price = params[:price]
+    @miles = params[:miles]
     furnitureAll = Furniture.all
     @furnitures = []
     furnitureAll.each do |f|

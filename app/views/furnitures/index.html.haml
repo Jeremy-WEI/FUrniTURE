@@ -101,6 +101,7 @@
         }
     }
     function RadiusToZoom(radius){
+        if(radius < 1) return 12;
         return Math.round(14-Math.log(radius)/Math.LN2);
     }
 

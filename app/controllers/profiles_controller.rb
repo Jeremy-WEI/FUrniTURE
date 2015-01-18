@@ -10,7 +10,8 @@ class ProfilesController < ApplicationController
 
   def show
     @user = @profile.user
-    @currentLocation = [23, 170]
+    tmp = Geokit::Geocoders::GoogleGeocoder.geocode(@user.address)
+    @currentLocation = [tmp.lat, tmp.lng]
     respond_with(@profile)
   end
 
