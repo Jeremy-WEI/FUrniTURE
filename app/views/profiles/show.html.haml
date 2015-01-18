@@ -53,3 +53,8 @@
                           = Geokit::LatLng.new(furniture.latitude, furniture.longitude).distance_to(@currentLocation).round(1).to_s+" miles"
                         %span.label.label-success
                           = furniture.created_at.to_time.to_formatted_s(:db).to_s.slice(0, 10)
+                        %br
+                        %br
+                        .row
+                          .col-md-12.text-center
+                            = button_to 'delete it', "/furnitures/#{furniture.id}", method: :delete, data: { confirm: "Are You Sure?" }, class: "btn btn-default text-center"
