@@ -54,7 +54,6 @@ class FurnituresController < ApplicationController
   # GET /furnitures/new
   def new
     @furniture = Furniture.new
-
   end
 
   # GET /furnitures/1/edit
@@ -79,6 +78,7 @@ class FurnituresController < ApplicationController
     @furniture.address = current_user.address
     @furniture.phone = current_user.phone
     @furniture.email = current_user.email
+    @furniture.oldness = current_user.oldness
     @location = Geokit::Geocoders::GoogleGeocoder.geocode @furniture.address
     if @location.success
       @furniture.latitude = @location.lat
@@ -100,7 +100,7 @@ class FurnituresController < ApplicationController
   def update
     respond_to do |format|
       if @furniture.update(furniture_params)
-        format.html { redirect_to @furniture, notice: 'Furniture was successfully updated.' }
+        format.html { redirect_to @furniture, notice: 'Furniture Has Been Successfully Updated.' }
         format.json { render :show, status: :ok, location: @furniture }
       else
         format.html { render :edit }
@@ -114,7 +114,7 @@ class FurnituresController < ApplicationController
   def destroy
     @furniture.destroy
     respond_to do |format|
-      format.html { redirect_to furnitures_url, notice: 'Furniture was successfully destroyed.' }
+      format.html { redirect_to furnitures_url, notice: 'Furniture Has Been Successfully Deleted.' }
       format.json { head :no_content }
     end
   end
@@ -127,6 +127,6 @@ class FurnituresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def furniture_params
-      params.require(:furniture).permit(:title, :tag, :picture1, :picture2, :picture3, :picture4, :price, :description, :email, :phone, :latitude, :longitude)
+      params.require(:furniture).permit(:title, :tag, :picture1, :picture2, :picture3, :picture4, :price, :description, :email, :phone, :latitude, :longitude, :oldness)
     end
 end

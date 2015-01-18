@@ -2,23 +2,24 @@
   .container
     .row
       .col-md-4
+        %br
         .content-box
           .sp-wrap
             - if @furniture.picture1 != nil && @furniture.picture1.to_s.strip != ""
               %a{:href => @furniture.picture1}
-                %img{:src => @furniture.picture1, :height => "400", :width => "400"}
+                %img{:src => @furniture.picture1}
             - else
               %a{:href => image_url("product-1.jpg")}
-                %img{:alt => "There is no image attached.", :src => image_url("product-1-h.jpg")}
+                %img{:src => image_url("product-1-h.jpg")}
             - if @furniture.picture2 != nil && @furniture.picture2.to_s.strip != ""
               %a{:href => @furniture.picture2}
-                %img{:alt => "There is no image attached.", :src => @furniture.picture2}
+                %img{:src => @furniture.picture2}
             - if @furniture.picture3 != nil && @furniture.picture3.to_s.strip != ""
               %a{:href => @furniture.picture3}
-                %img{:alt => "There is no image attached.", :src => @furniture.picture3}
+                %img{:src => @furniture.picture3}
             - if @furniture.picture4 != nil && @furniture.picture4.to_s.strip != ""
               %a{:href => @furniture.picture4}
-                %img{:alt => "There is no image attached.", :src => @furniture.picture4}
+                %img{:src => @furniture.picture4}
       .col-md-8
         .content-box
           .product-meta
@@ -29,15 +30,13 @@
                 %a{:href => "/profiles/#{@furniture.user.profile.id}"}
                   = @furniture.user.name
               %li.current
-                %a{:href => "javscript:;"}
-                  = @furniture.title
+                %a= @furniture.title
           .product-desc
             .product-price
               .price-new
                 Price
                 %span
                   = "$" + @furniture.price.to_s
-
                 %a.info.cart{:href => ""}
                   %span.icon>
                     %i.icon-basket
@@ -47,40 +46,46 @@
                 %a{"data-toggle" => "tab", :href => "#desc"} Description
               %li
                 %a{"data-toggle" => "tab", :href => "#addr"} View On Map
-            .tab-content.scroll-view
+            .tab-content{:style => "height: 500px"}
               #desc.tab-pane.fade.in.active
                 .row
-                  .col-md-2
-                    %strong
-                      Category:
-                  .col-md-2
-                    .product-tag
-                      .product-tag-content
-                        %span
-                          = @furniture.tag.to_s
-                %p.text-left
-                  %strong
-                    Description:
-                %p.text-left
-                  = @furniture.description
-                %p.text-left
-                  %strong
-                    Year:
-                %p.text-left
-                  = @furniture.oldness.to_s + "years"
-                %p.text-left
-                  %strong
-                    Contact's Email:
-                %p.text-left
-                  = @furniture.email
-                %p.text-left
-                  %strong
-                    Phone Number:
-                %p.text-left
-                  = @furniture.phone
+                  .col-md-3
+                    %h4 Name:
+                  .col-md-8
+                    %h4
+                      %small= @furniture.title
+                .row
+                  .col-md-3
+                    %h4 Category:
+                  .col-md-8
+                    %h4
+                      %span.label.label-info= @furniture.tag
+                .row
+                  .col-md-3
+                    %h4 Description:
+                  .col-md-8
+                    %h4
+                      %small= @furniture.description
+                .row
+                  .col-md-3
+                    %h4 Oldness:
+                  .col-md-8
+                    %h4
+                      %small= @furniture.oldness
+                .row
+                  .col-md-3
+                    %h4 Contact's Email:
+                  .col-md-8
+                    %h4
+                      %small= @furniture.email
+                .row
+                  .col-md-3
+                    %h4 Phone Number:
+                  .col-md-8
+                    %h4
+                      %small= @furniture.phone
               #addr.tab-pane.fade
-                %b
-                  Address
+                %b Address:
                 - if @furniture.user != nil
                   = @furniture.address
                 %br
