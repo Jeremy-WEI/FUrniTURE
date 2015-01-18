@@ -26,8 +26,8 @@
               = @furniture.title
             %ul.product-breadcrumb
               %li
-                %a{:href => "javscript:;"}
-                  = @furniture.user
+                %a{:href => "/profiles/#{@furniture.user.profile.id}"}
+                  = @furniture.user.name
               %li.current
                 %a{:href => "javscript:;"}
                   = @furniture.title
@@ -53,6 +53,9 @@
               #desc.tab-pane.fade.in.active
                 .row
                   .col-md-2
+                    %strong
+                      Category:
+                  .col-md-2
                     .product-tag
                       .product-tag-content
                         %span
@@ -64,9 +67,9 @@
                   = @furniture.description
                 %p.text-left
                   %strong
-                    Oldness:
+                    Year:
                 %p.text-left
-                  = @furniture.oldness
+                  = @furniture.oldness.to_s + "years"
                 %p.text-left
                   %strong
                     Contact's Email:
@@ -85,7 +88,6 @@
                 %br
                 %b
                   %p{:style => 'color:red'}
-                    = content_tag :div, class: "furniture_class", data: {furniture: @furniture} do end
                 #map-location
               #addinfo.tab-pane.fade
                 %p
@@ -110,12 +112,14 @@
                       %td
                         %p Odio convallis suscipit venenatis, ante ipsum
 
+
+
 %section.content-wrapper
   .container
     .row
       .col-md-12
         .box-title
-          %h2 YOU MAY ALSO INTERESTED ...
+          %h2 YOU MAY ALSO LIKE ...
   .row
     .col-md-12
       -@related_furnitures.each do |furniture|
@@ -149,28 +153,53 @@
               %i.fa.fa-star
               %i.fa.fa-star
 
+= content_tag :div, class: "furniture_class", data: {furniture: @furniture, current: @currentLocation} do end
 
 :javascript
   $(document).ready(function() {
 
+    var directionsDisplay;
+    var directionsService = new google.maps.DirectionsService();
     var location = $('.furniture_class').data('furniture');
+    var currentLocation = $('.furniture_class').data('current');
     var mapOptions = {
       zoom: 15,
       center: new google.maps.LatLng(location.latitude, location.longitude)
     };
     var map;
     function initialize() {
-      var here = new google.maps.Marker({
-        //position: new google.maps.LatLng(20, 30),
-        position: new google.maps.LatLng(location.latitude, location.longitude),
-        map: map,
-      });
+      //var here = new google.maps.Marker({
+      //  position: new google.maps.LatLng(location.latitude, location.longitude),
+      //  map: map
+      //});
+      if(currentLocation != null){
+        //var current = new google.maps.Marker({
+        //  position: new google.maps.LatLng(currentLocation[0], currentLocation[1]),
+        //  map: map,
+        //  icon: 'http://library.csun.edu/images/google_maps/marker-blue.png'
+        //})
+        directionsDisplay = new google.maps.DirectionsRenderer();
+
+        directionsDisplay.setMap(map);
+
+        var request = {
+            origin: new google.maps.LatLng(location.latitude, location.longitude),
+            destination: new google.maps.LatLng(currentLocation[0], currentLocation[1]),
+            travelMode: google.maps.TravelMode.DRIVING
+        };
+        directionsService.route(request, function(response, status) {
+          if (status == google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(response);
+          }
+        });
+      }
     }
     $("#addr").show(function() {
       map = new google.maps.Map(document.getElementById('map-location'), mapOptions);
       initialize();
-      google.maps.event.addDomListener(window, 'load', initialize);
+
       //google.maps.event.trigger(map, 'resize');
     });
+    google.maps.event.addDomListener(window, 'load', initialize);
 
   });

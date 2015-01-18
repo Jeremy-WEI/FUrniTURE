@@ -30,6 +30,10 @@
                 - if user_signed_in?
                   %a.info{:href => ""}
                     %span.icon>
+                      %i.icon-location
+                    = link_to 'Map', furnitures_path
+                  %a.info{:href => ""}
+                    %span.icon>
                       %i.icon-money
                     = link_to 'Sell Furniture', new_furniture_path
                   %a.info{:href => ""}
@@ -120,7 +124,7 @@
         .row
           .col-md-12
             .shop-info
-              %p Tumbas Business Multipurpose Template
+              %p FUrniTURE, best used furniture trading platform
               %p
                 Powered by
                 %a Bootstrap

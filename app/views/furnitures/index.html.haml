@@ -9,15 +9,21 @@
             .select-wrapper
               %form{:action => "search"}
                 %select.country-id{:name => "price"}
-                  %option{:value => "50"} 0-50
-                  %option{:value => "100"} 50-100
-                  %option{:value => "150"} 100-150
-                  %option{:value => "200"} 150-
+                  %option{:value => "5"}$0 - $5
+                  %option{:value => "10"}$5 - $10
+                  %option{:value => "25"}$10 - $25
+                  %option{:value => "50"}$25 - $50
+                  %option{:value => "100"}$50 - $100
+                  %option{:value => "200"}$100 - $200
+                  %option{:value => "500"}$200 - $500
+                  %option{:value => "1000"}$500 - $1000
+                  %option{:value => "1000000"}More than $1000
                 %select.country_id{:name => "miles"}
-                  %option{:value => 5} 0-5
-                  %option{:value => 10} 5-10
-                  %option{:value => 30} 10-30
-                  %option{:value => 50} 30-
+                  %option{:value => 1}Within 1 mile
+                  %option{:value => 5}1 - 5 miles
+                  %option{:value => 10}5 - 10 miles
+                  %option{:value => 30}10 - 30 miles
+                  %option{:value => 10000}More than 30 miles
                 %select.country_id{:name => "tag"}
                   %option{:value => "chair"} Chair
                   %option{:value => "table"} Table
@@ -33,66 +39,7 @@
           %h3.wdgt-title PRODUCT LIST
           %ul.wdgt-product
             -@furnitures.each do |furniture|
-              = render 'furniture_brief', furniture: furniture
-
--#= form_for @search do |f|
--#  .field
--#    = f.label :address
--#    = f.text_field :current_address
--#  .field
--#    = f.label :type
--#    = select(:type, :status, options_for_select([["canceled", "1"], ["pending", "2"], ["success", "3"]]))
--#    = f.text_field :type
--#  .field
--#    = f.label :price
--#    = f.text_field :price
--#  .field
--#    = f.label :distance
--#    = f.text_field :distance
--#  .actions
--#    = f.submit 'Search'
-
--#
--#%h1 Listing furnitures
--#
--#%table
--#  %thead
--#    %tr
--#      %th Title
--#      %th Tag
--#      %th Picture1
--#      %th Picture2
--#      %th Picture3
--#      %th Picture4
--#      %th Price
--#      %th Description
--#      %th Email
--#      %th Phone
--#      %th Latitude
--#      %th Longitude
--#      %th
--#      %th
--#      %th
-
-  %tbody
-    - @furnitures.each do |furniture|
-      %tr
-        %td= furniture.title
-        %td= furniture.tag
-        %td= furniture.picture1
-        %td= furniture.picture2
-        %td= furniture.picture3
-        %td= furniture.picture4
-        %td= furniture.price
-        %td= furniture.description
-        %td= furniture.email
-        %td= furniture.phone
-        %td= furniture.latitude
-        %td= furniture.longitude
-        %td= link_to 'Show', furniture
-        %td= link_to 'Edit', edit_furniture_path(furniture)
-        %td= link_to 'Destroy', furniture, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+              = render 'furniture_brief', furniture: furniture, currentLocation: @currentLocation
 %br
 
 

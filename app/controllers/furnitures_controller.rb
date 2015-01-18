@@ -1,4 +1,6 @@
 class FurnituresController < ApplicationController
+
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :set_furniture, only: [:show, :edit, :update, :destroy, :add_to_watch_list]
 
   # GET /furnitures
@@ -20,7 +22,7 @@ class FurnituresController < ApplicationController
     @furnitures = []
     furnitureAll.each do |f|
       location = Geokit::LatLng.new(f.latitude, f.longitude)
-      if f.tag == tag and f.price.to_i <= price.to_i and location.distance_to(@currentLocation) <= @miles.to_i
+      if f.tag == tag and f.price.to_i <= price.to_i and f.price.to_i >= (price.to_i-50) and location.distance_to(@currentLocation) <= @miles.to_i and location.distance_to(@currentLocation) >= (@miles.to_i - 50)
         @furnitures.append(f)
       end
     end
@@ -30,12 +32,21 @@ class FurnituresController < ApplicationController
   # GET /furnitures/1
   # GET /furnitures/1.json
   def show
+    address = current_user.address
+    # @currentLocation = address
+    tmp = Geokit::Geocoders::GoogleGeocoder.geocode(address)
+    if tmp.success
+      @currentLocation = [tmp.lat, tmp.lng]
+    else
+      @currentLocation = nil
+    end
     @related_furnitures = Furniture.where(tag: @furniture.tag).where.not(id: @furniture.id).order("RANDOM()").limit(4)
   end
 
   # GET /furnitures/new
   def new
     @furniture = Furniture.new
+
   end
 
   # GET /furnitures/1/edit
