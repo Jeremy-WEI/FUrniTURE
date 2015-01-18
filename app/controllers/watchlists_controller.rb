@@ -9,6 +9,14 @@ class WatchlistsController < ApplicationController
   end
 
   def show
+    address = current_user.address
+    # @currentLocation = address
+    tmp = Geokit::Geocoders::GoogleGeocoder.geocode(address)
+    if tmp.success
+      @currentLocation = [tmp.lat, tmp.lng]
+    else
+      @currentLocation = nil
+    end
     respond_with(@watchlist)
   end
 
