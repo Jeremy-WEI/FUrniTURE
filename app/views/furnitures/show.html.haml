@@ -37,10 +37,11 @@
                 Price
                 %span
                   = "$" + @furniture.price.to_s
-              %a.info.cart{:href => ""}
-                %span.icon>
-                  %i.icon-basket
-                -#= link_to 'Add to Watch List', watchlists_path
+
+                %a.info.cart{:href => ""}
+                  %span.icon>
+                    %i.icon-basket
+                  = link_to 'Add to Watch List', "/furnitures/#{@furniture.id}", method: :post
             %ul.nav.nav-tabs
               %li.active
                 %a{"data-toggle" => "tab", :href => "#desc"} Description
@@ -51,6 +52,9 @@
             .tab-content.scroll-view
               #desc.tab-pane.fade.in.active
                 .row
+                  .col-md-2
+                    %strong
+                      Category:
                   .col-md-2
                     .product-tag
                       .product-tag-content
@@ -63,9 +67,9 @@
                   = @furniture.description
                 %p.text-left
                   %strong
-                    Oldness:
+                    Year:
                 %p.text-left
-                  = @furniture.oldness
+                  = @furniture.oldness.to_s + "years"
                 %p.text-left
                   %strong
                     Contact's Email:
