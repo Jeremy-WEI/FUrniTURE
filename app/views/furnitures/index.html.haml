@@ -1,37 +1,42 @@
-%hr
 .row
   .col-md-12
     .col-md-8
       .row
         .product-order
-          .col-md-4
-          .col-md-4
-            .select-wrapper
-              %form{:action => "search"}
-                %select.country-id{:name => "price"}
-                  %option{:value => "5"}$0 - $5
-                  %option{:value => "10"}$5 - $10
-                  %option{:value => "25"}$10 - $25
-                  %option{:value => "50"}$25 - $50
-                  %option{:value => "100"}$50 - $100
-                  %option{:value => "200"}$100 - $200
-                  %option{:value => "500"}$200 - $500
-                  %option{:value => "1000"}$500 - $1000
-                  %option{:value => "1000000"}More than $1000
-                %select.country_id{:name => "miles"}
-                  %option{:value => 1}Within 1 mile
-                  %option{:value => 5}1 - 5 miles
-                  %option{:value => 10}5 - 10 miles
-                  %option{:value => 30}10 - 30 miles
-                  %option{:value => 10000}More than 30 miles
-                %select.country_id{:name => "tag"}
-                  %option{:value => "chair"} Chair
-                  %option{:value => "table"} Table
-                  %option{:value => "bed"} Bed
-                  %option{:value => "sofa"} Sofa
-                  %option{:value => "other"} Others
-                %input.input-black{:type => "text", :name => "address"}
-                %input.btn-sm{:type => "submit", :value => "Search"}
+          %form{:action => "search"}
+            .row
+              .col-md-12
+                .col-md-4
+                  %select.form-control{:name => "price"}
+                    %option{:value => "5"}$0 - $5
+                    %option{:value => "10"}$5 - $10
+                    %option{:value => "25"}$10 - $25
+                    %option{:value => "50"}$25 - $50
+                    %option{:value => "100"}$50 - $100
+                    %option{:value => "200"}$100 - $200
+                    %option{:value => "500"}$200 - $500
+                    %option{:value => "1000"}$500 - $1000
+                    %option{:value => "1000000"}More than $1000
+                .col-md-3
+                  %select.form-control{:name => "miles"}
+                    %option{:value => 1}Within 1 mile
+                    %option{:value => 5}1 - 5 miles
+                    %option{:value => 10}5 - 10 miles
+                    %option{:value => 30}10 - 30 miles
+                    %option{:value => 10000}More than 30 miles
+                .col-md-3
+                  %select.form-control{:name => "tag"}
+                    %option{:value => "Chair"} Chair
+                    %option{:value => "Table"} Table
+                    %option{:value => "Bed"} Bed
+                    %option{:value => "Sofa"} Sofa
+                    %option{:value => "Lamp"} Lamp
+                    %option{:value => "Mattress"} Mattress
+                    %option{:value => "Microwave"} Microwave
+                    %option{:value => "Shelf"} Shelf
+                .col-md-2
+                  %input.btn.btn-default.form-control{:type => "submit", :value => "Search"}
+      %hr
       #map-canvas}
     .col-md-4.scroll-view
       %section.content-wrapper
