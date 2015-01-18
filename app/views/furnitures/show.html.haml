@@ -8,8 +8,8 @@
               %a{:href => @furniture.picture1}
                 %img{:src => @furniture.picture1, :height => "400", :width => "400"}
             - else
-              %a{:href => image_url("product-1.jpg")}
-                %img{:alt => "There is no image attached.", :src => image_url("product-1-h.jpg")}
+              %a{:href => image_url("default.jpg")}
+                %img{:alt => "There is no image attached.", :height => "400", :width => "400", :src => "/assets/default.jpg"}
             - if @furniture.picture2 != nil && @furniture.picture2.to_s.strip != ""
               %a{:href => @furniture.picture2}
                 %img{:alt => "There is no image attached.", :src => @furniture.picture2}

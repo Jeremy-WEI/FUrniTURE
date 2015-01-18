@@ -3,7 +3,7 @@
     - if furniture.picture1 != nil && furniture.picture1.to_s != ""
       = image_tag furniture.picture1, size: "45x45"
     - else
-      = image_tag "aeroplane.png", size: "45x45"
+      = image_tag "default.jpg", size: "45x45"
     = furniture.title
   %a{:href => "#{profile_path(furniture.user.profile)}", :float => "right"}
     = furniture.user.name

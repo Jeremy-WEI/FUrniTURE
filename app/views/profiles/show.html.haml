@@ -32,7 +32,10 @@
                   %a{:href => "/furnitures/#{furniture.id}"}
                     .people-block
                       %figure
-                        = image_tag furniture.picture1, size: '300x250'
+                        - if furniture.picture1 != nil && furniture.picture1.to_s.strip != ""
+                          = image_tag furniture.picture1, size: '300x250'
+                        - else
+                          %img{:alt => "There is no image attached.", :src => "/assets/default.jpg", :height => 250, :width => 300}
                       .people-desc
                         %span.people-name
                           = furniture.title
