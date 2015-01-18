@@ -6,34 +6,42 @@ class FurnituresController < ApplicationController
   # GET /furnitures
   # GET /furnitures.json
   def index
-    @furnitures = Furniture.all
-    if user_signed_in?
-      address = current_user.address
-      tmp = Geokit::Geocoders::GoogleGeocoder.geocode(address)
-      @currentLocation = [tmp.lat, tmp.lng]
-    else
-      @currentLocation = [39.95, -75.19]
+    @furnitures = []
+    Furniture.all.each do |f|
+      if f.user_id != current_user.id
+          @furnitures.append(f)
+      end
     end
-    @miles = 5
-  end
-
-  def search
-    tag = params[:tag]
     address = current_user.address
     tmp = Geokit::Geocoders::GoogleGeocoder.geocode(address)
     @currentLocation = [tmp.lat, tmp.lng]
-    price = params[:price]
+    @miles = 5
+    @furnitures.sort!{|x,y| Geokit::LatLng.new(x.latitude, x.longitude).distance_to(@currentLocation)<=>Geokit::LatLng.new(y.latitude, y.longitude).distance_to(@currentLocation)}
+    @count = @furnitures.size
+    @tag = "furnitures"
+    @price = ">$1000"
+  end
+
+  def search
+    @tag = params[:tag]
+    address = current_user.address
+    tmp = Geokit::Geocoders::GoogleGeocoder.geocode(address)
+    @currentLocation = [tmp.lat, tmp.lng]
+    @price = params[:price]
     @miles = params[:miles]
     furnitureAll = Furniture.all
     @furnitures = []
     furnitureAll.each do |f|
       location = Geokit::LatLng.new(f.latitude, f.longitude)
-      if f.tag == tag and f.price.to_i <= price.to_i and location.distance_to(@currentLocation) <= @miles.to_i
+      if f.user_id != current_user.id and f.tag == @tag and f.price.to_i <= @price.to_i and location.distance_to(@currentLocation) <= @miles.to_i
         @furnitures.append(f)
       end
     end
+    @furnitures.sort!{|x,y| Geokit::LatLng.new(x.latitude, x.longitude).distance_to(@currentLocation)<=>Geokit::LatLng.new(y.latitude, y.longitude).distance_to(@currentLocation)}
+    @count = @furnitures.size
     render 'furnitures/index'
   end
+
 
   # GET /furnitures/1
   # GET /furnitures/1.json
