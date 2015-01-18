@@ -28,7 +28,7 @@ class FurnituresController < ApplicationController
     @furnitures = []
     furnitureAll.each do |f|
       location = Geokit::LatLng.new(f.latitude, f.longitude)
-      if f.tag == tag and f.price.to_i <= price.to_i and f.price.to_i >= (price.to_i-50) and location.distance_to(@currentLocation) <= @miles.to_i and location.distance_to(@currentLocation) >= (@miles.to_i - 50)
+      if f.tag == tag and f.price.to_i <= price.to_i and location.distance_to(@currentLocation) <= @miles.to_i
         @furnitures.append(f)
       end
     end
