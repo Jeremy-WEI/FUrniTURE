@@ -8,13 +8,13 @@
         = image_tag 'top-slider/slide_1.jpg'
         .caption
           .slider-title.animated.fadeInDown.delay1 NO IDEA WITH YOUR USED FURNITURE?
-          .hidden-xs.delay2.slider-desc.animated.fadeIn FUrniTURE is the best place for you to sell your furniture.
+          .hidden-xs.delay2.slider-desc.animated.fadeIn Try FUrniTURE!!<br> This is the right place to sell and buy used furniture locally.
           .slider-button.animated.fadeInUp.delay3
             -#- if user_sign_in?
-            = link_to 'SELL YOUR FURNITURE', new_furniture_path
+            = link_to 'SELL FURNITURE', new_furniture_path
             -#- else
               SELL YOUR FURNITURE
-            = link_to 'SEARCH NEARBY FURNITURE', furnitures_path
+            = link_to 'BUY FURNITURE', furnitures_path
       .item.animated.fadeInUp
         = image_tag 'top-slider/slide_2.jpg'
         .caption
