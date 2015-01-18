@@ -30,7 +30,6 @@
                   %option{:value => "bed"} Bed
                   %option{:value => "sofa"} Sofa
                   %option{:value => "other"} Others
-                %input.input-black{:type => "text", :name => "address"}
                 %input.btn-sm{:type => "submit", :value => "Search"}
       #map-canvas}
     .col-md-4.scroll-view
@@ -96,6 +95,7 @@
         }
     }
     function RadiusToZoom(radius){
+        if(radius < 1) return 12;
         return Math.round(14-Math.log(radius)/Math.LN2);
     }
 
